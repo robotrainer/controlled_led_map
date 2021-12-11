@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "johnny-five": "^2.1.0",
+    "serialport": "^9.2.8",
+    "socket.io": "^4.4.0"
+  },
+  "name": "controlled_led_map",
+  "description": "Управление подсветкой карты региона через NodeJS + Arduino",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robotrainer/controlled_led_map.git"
+  },
+  "author": "robotrainer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robotrainer/controlled_led_map/issues"
+  },
+  "homepage": "https://github.com/robotrainer/controlled_led_map#readme"
+}

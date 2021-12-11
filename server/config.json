@@ -1,0 +1,5 @@
+{
+  "port": "/dev/ttyS3",
+  "PORT": 3000,
+  "baudRate": 9600
+}
