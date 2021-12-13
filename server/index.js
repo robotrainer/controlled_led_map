@@ -14,7 +14,7 @@ app.use("/", express.static("assets"));
 
 io.on("connection", (socket) => {
   console.log("User connected");
-  socket.on("click button", (signal) => {
+  socket.on("click district", (signal) => {
     const buf = new Buffer.from([1]);
     buf.writeUInt8(signal, 0);
     console.log("signal: " + signal);
