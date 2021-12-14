@@ -24,13 +24,9 @@ img {
   justify-content: center;
 }
 
-.right__wrapper {
-  flex: 1;
-}
-
 .map__wrapper {
   position: relative;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .map__wrapper svg {
@@ -49,3 +45,16 @@ img {
 .active {
   fill: #ffc000;
 }
+
+.right__wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.heading {
+  color: white;
+  font-size: 45px;
+  text-align: center;
+}
+

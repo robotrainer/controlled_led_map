@@ -6,10 +6,10 @@ const district = document.querySelectorAll(".district");
 
 district.forEach(d => {
   d.addEventListener("click", function () {
-    const result = Object.values(this.classList).includes("active");
-    console.log(this);
+    const active = Object.values(this.classList).includes("active");
+    const districtName = this.getAttribute("data-title");
 
-    if (result) {
+    if (active) {
       this.classList.remove("active");
     } else {
       district.forEach(d => {
@@ -18,11 +18,13 @@ district.forEach(d => {
       this.classList.add("active");
     }
 
-    socket.emit("click district", button_on);
-    if (button_on) {
-      button_on = 0;
-    } else {
-      button_on = 1;
+    if (districtName == "Ижморский") {
+      socket.emit("click district", button_on);
+      if (button_on) {
+        button_on = 0;
+      } else {
+        button_on = 1;
+      }
     }
 
   });
