@@ -6,29 +6,37 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: linear-gradient(90deg, #2B32B2, #1488CC);
 }
 
 img {
   width: 100%;
-  height: 800px;
+  max-height: 750px;
 }
 
 .wrapper {
-  width: 100%;
-  height: 100%;
   display: flex;
-  align-items: center;
+}
+
+.left__wrapper {
+  display: flex;
+  flex: 1;
   justify-content: center;
+}
+
+.right__wrapper {
+  flex: 1;
 }
 
 .map__wrapper {
   position: relative;
+  margin-top: 4rem;
 }
 
 .map__wrapper svg {
   position: absolute;
-  top: -1.9px;
-  left: -0.4px;
+  top: -2px;
+  left: 0;
   width: 100%;
   height: 100%;
 }

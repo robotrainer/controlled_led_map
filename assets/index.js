@@ -7,6 +7,7 @@ const district = document.querySelectorAll(".district");
 district.forEach(d => {
   d.addEventListener("click", function () {
     const result = Object.values(this.classList).includes("active");
+    console.log(this);
 
     if (result) {
       this.classList.remove("active");
