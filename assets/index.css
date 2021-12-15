@@ -58,3 +58,7 @@ img {
   text-align: center;
 }
 
+.text__district {
+  cursor: pointer;
+}
+
