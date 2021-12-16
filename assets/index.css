@@ -1,64 +1,74 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background: linear-gradient(90deg, #2B32B2, #1488CC);
+  background-image: url(images/BGpoints.png);
 }
 
-img {
-  width: 100%;
-  max-height: 750px;
-}
-
-.wrapper {
-  display: flex;
-}
-
-.left__wrapper {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-}
-
-.map__wrapper {
-  position: relative;
-  margin-top: 2rem;
-}
-
-.map__wrapper svg {
+.map {
   position: absolute;
-  top: -2px;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 585px;
+  height: 948px;
+  left: 180px;
+  top: 99px;
 }
 
-.district {
-  fill: none;
-  pointer-events: all;
-}
-
-.active {
-  fill: #ffc000;
-}
-
-.right__wrapper {
+.button__districts {
   display: flex;
-  flex: 1;
+  flex-direction: row;
   justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  position: absolute;
+  width: 644px;
+  height: 781px;
+  left: 1080px;
+  top: 253px;
 }
 
-.heading {
-  color: white;
-  font-size: 45px;
-  text-align: center;
+.left__buttom__districts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: static;
+  width: 322px;
+  height: 781px;
+  left: calc(50% - 362px/2 - 181px);
+  top: calc(50% - 781px/2);
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+  margin: 0px 0px;
 }
 
-.text__district {
+.right__buttom__districts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: static;
+  width: 322px;
+  height: 781px;
+  left: calc(50% - 362px/2 + 181px);
+  top: calc(50% - 781px/2);
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  margin: 0px 0px;
+}
+
+.button__district {
+  position: static;
+  width: 302px;
+  height: 60px;
+  left: calc(50% - 342px/2);
+  flex: none;
+  flex-grow: 0;
+  margin: 5px 0px;
+  background: #09AFEB;
+  border-radius: 10px;
+  border-color: #09AFEB;
+  font-family: 'Roboto';
+  font-size: 28px;
+  font-weight: bold;
+  color: #FFFFFF;
   cursor: pointer;
 }
-

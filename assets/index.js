@@ -2,8 +2,28 @@ let socket = io();
 let button_on_ig = 1;
 let button_on_yay = 2;
 
-const button = document.getElementById("button");
+const button = document.querySelectorAll(".button__district");
 const district = document.querySelectorAll(".text__district");
+const home = document.querySelector(".home");
+
+home.addEventListener("click", function () {
+  socket.emit("click district", 0);
+});
+
+button.forEach(button => {
+  button.addEventListener("click", function () {
+    let districtName = this.value;
+
+    if (districtName == "Кемерово") {
+      socket.emit("click district", button_on_ig);
+    }
+
+    if (districtName == "Ленинск-Кузнецкий") {
+      socket.emit("click district", button_on_yay);
+    }
+
+  });
+});
 
 district.forEach(d => {
   d.addEventListener("click", function () {
