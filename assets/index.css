@@ -2,12 +2,141 @@ body {
   background-image: url(images/BGpoints.png);
 }
 
+.hidden {
+  display: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  position: absolute;
+  width: 850px;
+  height: 28px;
+  left: 51px;
+  top: 50px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.header__city {
+  position: static;
+  width: 233px;
+  height: 28px;
+  left: 0px;
+  top: 0px;
+  margin: 0 10px;
+}
+
+.header__mineral {
+  position: static;
+  width: 322px;
+  height: 28px;
+  left: 262px;
+  top: 0px;
+  margin: 0 10px;
+}
+
+.header__miracle {
+  position: static;
+  width: 237px;
+  height: 28px;
+  left: 613px;
+  top: 0px;
+  margin: 0 10px;
+}
+
 .map {
   position: absolute;
   width: 585px;
   height: 948px;
   left: 180px;
   top: 99px;
+}
+
+.home {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 123px;
+  top: 969px;
+}
+
+.back {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  left: 48px;
+  top: 967px;
+}
+
+.home__img {
+  position: absolute;
+  left: 4.17%;
+  right: 4.17%;
+  top: 8.75%;
+  bottom: 12.5%;
+}
+
+.back__img {
+  position: absolute;
+  left: 16.67%;
+  right: 16.67%;
+  top: 16.67%;
+  bottom: 16.67%;
+}
+
+.map__info {
+  position: absolute;
+  width: 785px;
+  height: 210px;
+  left: 1050px;
+  top: 34px;
+}
+
+.map__info__logo {
+  position: absolute;
+  width: 545px;
+  height: 90px;
+  left: 226px;
+  top: 33px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.map__info__help {
+  position: absolute;
+  width: 543px;
+  height: 19px;
+  left: 226px;
+  top: 149px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.icon {
+  position: absolute;
+  width: 192px;
+  height: 208px;
+  left: 2px;
+  top: 2px;
 }
 
 .button__districts {
@@ -17,7 +146,7 @@ body {
   align-items: flex-start;
   padding: 0px;
   position: absolute;
-  width: 644px;
+  width: 724px;
   height: 781px;
   left: 1080px;
   top: 253px;
@@ -28,7 +157,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: static;
-  width: 322px;
+  width: 362px;
   height: 781px;
   left: calc(50% - 362px/2 - 181px);
   top: calc(50% - 781px/2);
@@ -44,7 +173,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: static;
-  width: 322px;
+  width: 362px;
   height: 781px;
   left: calc(50% - 362px/2 + 181px);
   top: calc(50% - 781px/2);
@@ -57,18 +186,381 @@ body {
 
 .button__district {
   position: static;
-  width: 302px;
+  width: 342px;
   height: 60px;
   left: calc(50% - 342px/2);
   flex: none;
   flex-grow: 0;
   margin: 5px 0px;
-  background: #09AFEB;
+  background: #00749E;
   border-radius: 10px;
-  border-color: #09AFEB;
+  border-color: #00749E;
   font-family: 'Roboto';
   font-size: 28px;
   font-weight: bold;
   color: #FFFFFF;
   cursor: pointer;
+}
+
+.map__city {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.kemerovo {
+  position: absolute;
+  width: 85px;
+  height: 16px;
+  left: 185px;
+  top: 282px;
+}
+
+.leninsk {
+  position: absolute;
+width: 110px;
+height: 10px;
+left: 151px;
+top: 425px;
+}
+
+.jurga {
+  position: absolute;
+width: 28px;
+height: 10px;
+left: 45px;
+top: 249px;
+}
+
+.belovo {
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  left: 241px;
+  top: 490px;
+}
+
+.berezovsky {
+  position: absolute;
+  width: 71px;
+  height: 10px;
+  left: 215px;
+  top: 243px;
+}
+
+.gurievsk {
+  position: absolute;
+  width: 50px;
+  height: 10px;
+  left: 145px;
+  top: 505px;
+}
+
+.kaltan {
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  left: 351px;
+  top: 682px;
+}
+
+.angero {
+  position: absolute;
+  width: 103px;
+  height: 10px;
+  left: 191px;
+  top: 138px;
+}
+
+.kiselevsk {
+  position: absolute;
+  width: 58px;
+  height: 10px;
+  left: 233px;
+  top: 565px;
+}
+
+.mariinsk {
+  position: absolute;
+  width: 57px;
+  height: 10px;
+  left: 332px;
+  top: 114px;
+}
+
+.mezhdurechensk {
+  position: absolute;
+  width: 83px;
+  height: 10px;
+  left: 439px;
+  top: 622px;
+}
+
+.myski {
+  position: absolute;
+  width: 38px;
+  height: 10px;
+  left: 349px;
+  top: 632px;
+}
+
+.novokuznetsk {
+  position: absolute;
+  width: 73px;
+  height: 10px;
+  left: 307px;
+  top: 609px;
+}
+
+.osinniki {
+  position: absolute;
+  width: 56px;
+  height: 10px;
+  left: 366px;
+  top: 653px;
+}
+
+.polysaevo {
+  position: absolute;
+  width: 62px;
+  height: 10px;
+  left: 250px;
+  top: 459px;
+}
+
+.prokopyevsk {
+  position: absolute;
+  width: 73px;
+  height: 10px;
+  left: 223px;
+  top: 596px;
+}
+
+.yashkino {
+  position: absolute;
+  width: 43px;
+  height: 10px;
+  left: 122px;
+  top: 187px;
+}
+
+.taiga {
+  position: absolute;
+  width: 31px;
+  height: 10px;
+  left: 121px;
+  top: 146px;  
+}
+
+.tashtagol {
+  position: absolute;
+  width: 54px;
+  height: 10px;
+  left: 446px;
+  top: 814px;
+}
+
+.topki {
+  position: absolute;
+  width: 34px;
+  height: 10px;
+  left: 134px;
+  top: 338px;
+}
+
+.sheregesh {
+  position: absolute;
+  width: 49px;
+  height: 10px;
+  left: 451px;
+  top: 788px;
+}
+
+.promyshlennaya {
+  position: absolute;
+  width: 88px;
+  height: 10px;
+  left: 84px;
+  top: 371px;
+}
+
+.eliipse__kemerovo {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 185px;
+  top: 298px;
+}
+
+.eliipse__leninsk {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 199px;
+  top: 448px;
+}
+
+.eliipse__jurga {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 52px;
+  top: 231px;
+}
+
+.eliipse__belovo {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 220px;
+  top: 491px;
+}
+
+.eliipse__berezovsky {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 199px;
+  top: 249px;
+}
+
+.eliipse__gurievsk {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 177px;
+  top: 519px;
+}
+
+.eliipse__kaltan {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 337px;
+  top: 673px;
+}
+
+.eliipse__angero {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 191px;
+  top: 154px;
+}
+
+.eliipse__kiselevsk {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 263px;
+  top: 579px;
+}
+
+.eliipse__mariinsk {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 379px;
+  top: 127px;
+}
+
+.eliipse__mezhdurechensk {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 433px;
+  top: 633px;
+}
+
+.eliipse__myski {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 396px;
+  top: 628px;
+}
+
+.eliipse__novokuznetsk {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 322px;
+  top: 623px;
+}
+
+.eliipse__osinniki {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 342px;
+  top: 656px;
+}
+
+.eliipse__polysaevo {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 223px;
+  top: 463px;
+}
+
+.eliipse__prokopyevsk {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 272px;
+  top: 605px;
+}
+
+.eliipse__promyshlennaya {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 132px;
+  top: 389px;  
+}
+
+.eliipse__taiga {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 131px;
+  top: 162px;
+}
+
+.eliipse__tashtagol {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 422px;
+  top: 817px;
+}
+
+.eliipse__topki {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 131px;
+  top: 320px;
+}
+
+.eliipse__yashkino {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 115px;
+  top: 202px;
+}
+
+.eliipse__sheregesh {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 429px;
+  top: 790px;
 }

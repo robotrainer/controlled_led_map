@@ -10,19 +10,30 @@ home.addEventListener("click", function () {
   socket.emit("click district", 0);
 });
 
-button.forEach(button => {
-  button.addEventListener("click", function () {
+button.forEach(b => {
+  b.addEventListener("click", function () {
     let districtName = this.value;
 
-    if (districtName == "Кемерово") {
+    if (districtName == "КЕМЕРОВО") {
       socket.emit("click district", button_on_ig);
     }
 
-    if (districtName == "Ленинск-Кузнецкий") {
+    if (districtName == "ЛЕНИНСК-КУЗНЕЦКИЙ") {
       socket.emit("click district", button_on_yay);
     }
 
+    button.forEach(b => {
+      b.classList.toggle("hidden");
+    });
+    home.classList.toggle("hidden");
   });
+});
+
+home.addEventListener("click", () => {
+  button.forEach(b => {
+    b.classList.toggle("hidden");
+  });
+  home.classList.toggle("hidden");
 });
 
 district.forEach(d => {
