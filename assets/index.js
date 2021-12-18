@@ -32,18 +32,17 @@ const home = document.querySelector(".home");
 const info = document.querySelector(".map__info");
 const cityItemsButtons = document.querySelector(".city__item__buttons");
 const cityItemText = document.querySelector(".city__item__text");
+const cityItemInfo = document.querySelector(".city__item__info");
+const cityItemLogo = document.querySelector(".city__item__logo");
+const cityItemName = document.querySelector(".city__item__name");
+const mapCitys = document.querySelectorAll(".map__city");
 
 button.forEach(b => {
   b.addEventListener("click", function () {
     let districtName = this.value;
+    let dataName = this.getAttribute("data-name");
 
-    if (districtName == "КЕМЕРОВО") {
-      socket.emit("click district", ledCity.kemerovo);
-    }
-
-    if (districtName == "ЛЕНИНСК-КУЗНЕЦКИЙ") {
-      socket.emit("click district", ledCity.leninsk);
-    }
+    socket.emit("click district", ledCity[`${dataName}`]);
 
     districtItems.style.display = "none";
     home.classList.toggle("hidden");
@@ -51,6 +50,10 @@ button.forEach(b => {
     document.body.style.backgroundImage = "url(images/BGpointsHalf.png)";
     cityItemsButtons.style.display = "flex";
     cityItemText.classList.toggle("hidden");
+    cityItemLogo.src = `./images/logo/${dataName}.svg`;
+    cityItemName.textContent = districtName;
+    cityItemInfo.classList.toggle("hidden");
+    document.querySelector(`.${dataName}`).style.fontSize = "18px";
   });
 });
 
@@ -61,7 +64,6 @@ socket.on("click district", (text) => {
     cityItemText.appendChild(p);
     p.textContent = x;
   });
-
 });
 
 home.addEventListener("click", () => {
@@ -73,7 +75,10 @@ home.addEventListener("click", () => {
   document.body.style.backgroundImage = "url(images/BGpoints.png)";
   cityItemsButtons.style.display = "none";
   cityItemText.classList.toggle("hidden");
-
+  cityItemInfo.classList.toggle("hidden");
+  mapCitys.forEach(city => {
+    city.style.fontSize = "12px";
+  });
 });
 
 

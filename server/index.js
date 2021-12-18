@@ -26,7 +26,10 @@ io.on("connection", (socket) => {
       cityInfo = cityData.kemerovo;
     } else if (signal == ledCity.leninsk) {
       cityInfo = cityData.leninsk;
+    } else if (signal == ledCity.novokuznetsk) {
+      cityInfo = cityData.novokuznetsk;
     }
+
     if (signal != 100) socket.emit("click district", cityInfo);
   });
   socket.on("disconnect", () => {
