@@ -1,72 +1,79 @@
 let socket = io();
-let button_on_ig = 1;
-let button_on_yay = 2;
+
+const ledCity = {
+  "off": 100,
+  "kemerovo": 0,
+  "leninsk": 1,
+  "jurga": 2,
+  "belovo": 3,
+  "berezovsky": 4,
+  "gurievsk": 5,
+  "kaltan": 6,
+  "angero": 7,
+  "kiselevsk": 8,
+  "mariinsk": 9,
+  "mezhdurechensk": 10,
+  "promyshlennaya": 11,
+  "novokuznetsk": 12,
+  "osinniki": 13,
+  "polysaevo": 14,
+  "prokopyevsk": 15,
+  "yashkino": 16,
+  "taiga": 17,
+  "tashtagol": 18,
+  "topki": 19,
+  "myski": 20,
+  "sheregesh": 21
+}
 
 const button = document.querySelectorAll(".button__district");
-const district = document.querySelectorAll(".text__district");
+const districtItems = document.querySelector(".button__districts");
 const home = document.querySelector(".home");
-
-home.addEventListener("click", function () {
-  socket.emit("click district", 0);
-});
+const info = document.querySelector(".map__info");
+const cityItemsButtons = document.querySelector(".city__item__buttons");
+const cityItemText = document.querySelector(".city__item__text");
 
 button.forEach(b => {
   b.addEventListener("click", function () {
     let districtName = this.value;
 
     if (districtName == "КЕМЕРОВО") {
-      socket.emit("click district", button_on_ig);
+      socket.emit("click district", ledCity.kemerovo);
     }
 
     if (districtName == "ЛЕНИНСК-КУЗНЕЦКИЙ") {
-      socket.emit("click district", button_on_yay);
+      socket.emit("click district", ledCity.leninsk);
     }
 
-    button.forEach(b => {
-      b.classList.toggle("hidden");
-    });
+    districtItems.style.display = "none";
     home.classList.toggle("hidden");
+    info.classList.toggle("hidden");
+    document.body.style.backgroundImage = "url(images/BGpointsHalf.png)";
+    cityItemsButtons.style.display = "flex";
+    cityItemText.classList.toggle("hidden");
   });
+});
+
+socket.on("click district", (text) => {
+  const src = Object.values(text);
+  src.forEach(x => {
+    let p = document.createElement("p");
+    cityItemText.appendChild(p);
+    p.textContent = x;
+  });
+
 });
 
 home.addEventListener("click", () => {
-  button.forEach(b => {
-    b.classList.toggle("hidden");
-  });
+  socket.emit("click district", ledCity.off);
+  cityItemText.innerHTML = "";
+  districtItems.style.display = "flex";
   home.classList.toggle("hidden");
+  info.classList.toggle("hidden");
+  document.body.style.backgroundImage = "url(images/BGpoints.png)";
+  cityItemsButtons.style.display = "none";
+  cityItemText.classList.toggle("hidden");
+
 });
 
-district.forEach(d => {
-  d.addEventListener("click", function () {
-    // const active = Object.values(this.classList).includes("active");
-    const districtName = this.getAttribute("data-title");
 
-    // if (active) {
-    //   this.classList.remove("active");
-    // } else {
-    //   district.forEach(d => {
-    //     d.classList.remove("active");
-    //   });
-    //   this.classList.add("active");
-    // }
-
-    if (districtName == "Ижморский") {
-      socket.emit("click district", button_on_ig);
-      if (button_on_ig == 1) {
-        button_on_ig = 11;
-      } else {
-        button_on_ig = 1;
-      }
-    }
-
-    if (districtName == "Яйский") {
-      socket.emit("click district", button_on_yay);
-      if (button_on_yay == 2) {
-        button_on_yay = 22;
-      } else {
-        button_on_yay = 2;
-      }
-    }
-
-  });
-});
