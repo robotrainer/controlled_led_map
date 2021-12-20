@@ -541,12 +541,42 @@ body {
   color: #00749E;
 }
 
+.city__item__heading {
+  position: absolute;
+  width: 277px;
+  height: 22px;
+  left: 113px;
+  top: 82px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 100%;
+  color: #00749E;
+}
+
 .city__item__text {
   position: absolute;
   width: 852px;
-  height: 314px;
+  height: 370px;
   left: 1014px;
   top: 121px;
+  overflow: auto;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 126.5%;
+  color: #00749E;
+}
+
+.city__item__history {
+  position: absolute;
+  width: 852px;
+  height: 900px;
+  left: 1014px;
+  top: 121px;
+  overflow: auto;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;

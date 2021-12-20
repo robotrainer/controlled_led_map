@@ -29,12 +29,16 @@ const ledCity = {
 const button = document.querySelectorAll(".button__district");
 const districtItems = document.querySelector(".button__districts");
 const home = document.querySelector(".home");
+const back = document.querySelector(".back");
 const info = document.querySelector(".map__info");
 const cityItemsButtons = document.querySelector(".city__item__buttons");
 const cityItemText = document.querySelector(".city__item__text");
 const cityItemInfo = document.querySelector(".city__item__info");
 const cityItemLogo = document.querySelector(".city__item__logo");
 const cityItemName = document.querySelector(".city__item__name");
+const cityItemHeading = document.querySelector(".city__item__heading");
+const cityItemButton = document.querySelectorAll(".city__item__button");
+const cityItemHistory = document.querySelector(".city__item__history");
 const mapCitys = document.querySelectorAll(".map__city");
 
 button.forEach(b => {
@@ -45,40 +49,80 @@ button.forEach(b => {
     socket.emit("click district", ledCity[`${dataName}`]);
 
     districtItems.style.display = "none";
-    home.classList.toggle("hidden");
-    info.classList.toggle("hidden");
+    home.classList.remove("hidden");
+    info.classList.add("hidden");
     document.body.style.backgroundImage = "url(images/BGpointsHalf.png)";
     cityItemsButtons.style.display = "flex";
-    cityItemText.classList.toggle("hidden");
+    cityItemText.classList.remove("hidden");
     cityItemLogo.src = `./images/logo/${dataName}.svg`;
     cityItemName.textContent = districtName;
-    cityItemInfo.classList.toggle("hidden");
+    cityItemInfo.classList.remove("hidden");
     document.querySelector(`.${dataName}`).style.fontSize = "18px";
   });
 });
 
-socket.on("click district", (text) => {
-  const src = Object.values(text);
-  src.forEach(x => {
+socket.on("click district", (info) => {
+  const cityInfo = Object.values(info);
+  cityInfo.forEach(text => {
     let p = document.createElement("p");
     cityItemText.appendChild(p);
-    p.textContent = x;
+    p.textContent = text;
+  });
+});
+
+socket.on("history", (history) => {
+  const cityHistory = Object.values(history);
+  if (cityHistory.length == 0) {
+    document.querySelector(".history").classList.add("hidden");
+  } else {
+    document.querySelector(".history").classList.remove("hidden");
+  }
+  cityHistory.forEach(text => {
+    let p = document.createElement("p");
+    cityItemHistory.appendChild(p);
+    p.textContent = text;
   });
 });
 
 home.addEventListener("click", () => {
   socket.emit("click district", ledCity.off);
   cityItemText.innerHTML = "";
+  cityItemHistory.innerHTML = "";
   districtItems.style.display = "flex";
-  home.classList.toggle("hidden");
-  info.classList.toggle("hidden");
+  home.classList.add("hidden");
+  info.classList.remove("hidden");
   document.body.style.backgroundImage = "url(images/BGpoints.png)";
   cityItemsButtons.style.display = "none";
-  cityItemText.classList.toggle("hidden");
-  cityItemInfo.classList.toggle("hidden");
+  cityItemText.classList.add("hidden");
+  cityItemInfo.classList.add("hidden");
   mapCitys.forEach(city => {
     city.style.fontSize = "12px";
   });
+  cityItemHeading.classList.add("hidden");
+  cityItemHistory.classList.add("hidden");
+  back.classList.add("hidden");
 });
 
+cityItemButton.forEach(b => {
+  b.addEventListener("click", function () {
+    const heading = this.value;
 
+    if (heading == "ИСТОРИЧЕСКАЯ СПРАВКА") {
+      cityItemHistory.classList.remove("hidden");
+    }
+
+    cityItemHeading.textContent = heading;
+    cityItemHeading.classList.remove("hidden");
+    cityItemsButtons.style.display = "none";
+    cityItemText.classList.add("hidden");
+    back.classList.remove("hidden");
+  });
+});
+
+back.addEventListener("click", () => {
+  back.classList.add("hidden");
+  cityItemsButtons.style.display = "flex";
+  cityItemHeading.classList.add("hidden");
+  cityItemText.classList.remove("hidden");
+  cityItemHistory.classList.add("hidden");
+});
