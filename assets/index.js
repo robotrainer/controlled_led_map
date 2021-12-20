@@ -101,6 +101,7 @@ home.addEventListener("click", () => {
   cityItemHeading.classList.add("hidden");
   cityItemHistory.classList.add("hidden");
   document.querySelector(".city__item__gallery").style.display = "none";
+  document.querySelector(".city__item__video").classList.add("hidden");
   back.classList.add("hidden");
 });
 
@@ -114,6 +115,10 @@ cityItemButton.forEach(b => {
 
     if (heading == "ФОТОАЛЬБОМ") {
       document.querySelector(".city__item__gallery").style.display = "grid";
+    }
+
+    if (heading == "ВИДЕО-ВИЗИТКА ГОРОДА") {
+      document.querySelector(".city__item__video").classList.remove("hidden");
     }
 
     cityItemHeading.textContent = heading;
@@ -131,4 +136,5 @@ back.addEventListener("click", () => {
   cityItemText.classList.remove("hidden");
   cityItemHistory.classList.add("hidden");
   document.querySelector(".city__item__gallery").style.display = "none";
+  document.querySelector(".city__item__video").classList.add("hidden");
 });
