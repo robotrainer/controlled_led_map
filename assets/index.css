@@ -6,6 +6,10 @@ body {
   display: none;
 }
 
+.underline {
+  border-bottom: 2px solid #FFFFFF;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -32,6 +36,7 @@ body {
   left: 0px;
   top: 0px;
   margin: 0 10px;
+  text-align: center;
 }
 
 .header__mineral {
@@ -41,6 +46,7 @@ body {
   left: 262px;
   top: 0px;
   margin: 0 10px;
+  text-align: center;
 }
 
 .header__miracle {
@@ -50,6 +56,7 @@ body {
   left: 613px;
   top: 0px;
   margin: 0 10px;
+  text-align: center;
 }
 
 .map {
@@ -205,6 +212,239 @@ body {
   box-shadow: 0 0 6px rgba(0,0,0,0.8);
 }
 
+.button__minerals {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  position: absolute;
+  width: 724px;
+  height: 781px;
+  left: 1080px;
+  top: 253px;
+}
+
+.left__buttom__minerals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: static;
+  width: 362px;
+  height: 781px;
+  left: calc(50% - 362px/2 - 181px);
+  top: calc(50% - 781px/2);
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+  margin: 0px 0px;
+}
+
+.right__buttom__minerals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: static;
+  width: 362px;
+  height: 781px;
+  left: calc(50% - 362px/2 + 181px);
+  top: calc(50% - 781px/2);
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  margin: 0px 0px;
+}
+
+.button__mineral {
+  position: static;
+  width: 342px;
+  height: 60px;
+  left: calc(50% - 342px/2);
+  flex: none;
+  flex-grow: 0;
+  margin: 5px 0px;
+  background: #00749E;
+  border-radius: 10px;
+  border-color: #00749E;
+  font-family: 'Roboto';
+  font-size: 28px;
+  font-weight: bold;
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0,0,0,0.8);
+}
+
+.button__miracles {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  position: absolute;
+  width: 790px;
+  height: 780px;
+  left: 1040px;
+  top: 230px;
+}
+
+.button__miracle {
+  position: static;
+  width: 778px;
+  height: 60px;
+  left: calc(50% - 778px/2);
+  background: #00749E;
+  border-radius: 10px;
+  flex: none;
+  flex-grow: 0;
+  margin: 8px 0px;
+  border-color: #00749E;
+  font-family: 'Roboto';
+  font-size: 28px;
+  font-weight: bold;
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0,0,0,0.8);
+}
+
+.h__miracle, .h__lakes {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.city__item__buttons {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  position: absolute;
+  width: 708px;
+  height: 383px;
+  left: calc(50%  + 330px);
+  top: calc(50% + 241.5px);
+}
+
+.city__item__button {
+  position: static;
+  width: 688px;
+  height: 80px;
+  flex: none;
+  flex-grow: 0;
+  margin: 20px 0px;
+  background: #00749E;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 100%;
+  color: #FFFFFF;
+  border-color: #00749E;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0,0,0,0.8);
+}
+
+.city__item__info {
+  position: absolute;
+  width: 960px;
+  height: 117px;
+  left: 960px;
+  top: 0px;
+}
+
+.city__item__logo {
+  position: absolute;
+  width: 69px;
+  height: 87px;
+  left: 16px;
+  top: 18px;
+}
+
+.city__item__name {
+  position: absolute;
+  width: 800px;
+  height: 64px;
+  left: 113px;
+  top: 18px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 100%;
+  color: #00749E;
+}
+
+.city__item__heading {
+  position: absolute;
+  width: 277px;
+  height: 22px;
+  left: 113px;
+  top: 82px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 100%;
+  color: #00749E;
+}
+
+.city__item__text {
+  position: absolute;
+  width: 852px;
+  height: 370px;
+  left: 1014px;
+  top: 121px;
+  overflow: auto;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 126.5%;
+  color: #00749E;
+}
+
+.city__item__history {
+  position: absolute;
+  width: 852px;
+  height: 900px;
+  left: 1014px;
+  top: 121px;
+  overflow: auto;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 126.5%;
+  color: #00749E;
+}
+
+.city__item__gallery {
+  position: absolute;
+  width: 852px;
+  height: 900px;
+  left: 1014px;
+  top: 121px;
+  overflow: auto;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+}
+
+.city__item__video {
+  position: absolute;
+  left: 1014px;
+  top: 321px;
+}
+
 .map__city {
   font-family: Roboto;
   font-style: normal;
@@ -349,263 +589,325 @@ body {
   top: 371px;
 }
 
-.eliipse__kemerovo {
+.ellipse__kemerovo {
   position: absolute;
   left: 185px;
   top: 298px;
 }
 
-.eliipse__leninsk {
+.ellipse__leninsk {
   position: absolute;
   left: 199px;
   top: 448px;
 }
 
-.eliipse__jurga {
+.ellipse__jurga {
   position: absolute;
   left: 52px;
   top: 231px;
 }
 
-.eliipse__belovo {
+.ellipse__belovo {
   position: absolute;
   left: 220px;
   top: 491px;
 }
 
-.eliipse__berezovsky {
+.ellipse__berezovsky {
   position: absolute;
   left: 199px;
   top: 249px;
 }
 
-.eliipse__gurievsk {
+.ellipse__gurievsk {
   position: absolute;
   left: 177px;
   top: 519px;
 }
 
-.eliipse__kaltan {
+.ellipse__kaltan {
   position: absolute;
   left: 337px;
   top: 673px;
 }
 
-.eliipse__angero {
+.ellipse__angero {
   position: absolute;
   left: 191px;
   top: 154px;
 }
 
-.eliipse__kiselevsk {
+.ellipse__kiselevsk {
   position: absolute;
   left: 263px;
   top: 579px;
 }
 
-.eliipse__mariinsk {
+.ellipse__mariinsk {
   position: absolute;
   left: 379px;
   top: 127px;
 }
 
-.eliipse__mezhdurechensk {
+.ellipse__mezhdurechensk {
   position: absolute;
   left: 433px;
   top: 633px;
 }
 
-.eliipse__myski {
+.ellipse__myski {
   position: absolute;
   left: 396px;
   top: 628px;
 }
 
-.eliipse__novokuznetsk {
+.ellipse__novokuznetsk {
   position: absolute;
   left: 322px;
   top: 623px;
 }
 
-.eliipse__osinniki {
+.ellipse__osinniki {
   position: absolute;
   left: 342px;
   top: 656px;
 }
 
-.eliipse__polysaevo {
+.ellipse__polysaevo {
   position: absolute;
   left: 223px;
   top: 463px;
 }
 
-.eliipse__prokopyevsk {
+.ellipse__prokopyevsk {
   position: absolute;
   left: 272px;
   top: 605px;
 }
 
-.eliipse__promyshlennaya {
+.ellipse__promyshlennaya {
   position: absolute;
   left: 132px;
   top: 389px;  
 }
 
-.eliipse__taiga {
+.ellipse__taiga {
   position: absolute;
   left: 131px;
   top: 162px;
 }
 
-.eliipse__tashtagol {
+.ellipse__tashtagol {
   position: absolute;
   left: 422px;
   top: 817px;
 }
 
-.eliipse__topki {
+.ellipse__topki {
   position: absolute;
   left: 131px;
   top: 320px;
 }
 
-.eliipse__yashkino {
+.ellipse__yashkino {
   position: absolute;
   left: 115px;
   top: 202px;
 }
 
-.eliipse__sheregesh {
+.ellipse__sheregesh {
   position: absolute;
   left: 429px;
   top: 790px;
 }
 
-.city__item__buttons {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
+.stone, .brown, .iron, .manganese, .aluminum, .polymet, .gold, .fireclay, .phosphorites {
+  width: 14px;
+  height: 14px;
+}
+
+.stone__1 {
   position: absolute;
-  width: 708px;
-  height: 383px;
-  left: calc(50%  + 330px);
-  top: calc(50% + 241.5px);
+  left: 196px;
+  top: 161px;
 }
 
-.city__item__button {
-  position: static;
-  width: 688px;
-  height: 80px;
-  flex: none;
-  flex-grow: 0;
-  margin: 20px 0px;
-  background: #00749E;
-  border-radius: 10px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 100%;
-  color: #FFFFFF;
-  border-color: #00749E;
-  cursor: pointer;
-  box-shadow: 0 0 12px rgba(0,0,0,0.8);
-}
-
-.city__item__info {
+.stone__2 {
   position: absolute;
-  width: 960px;
-  height: 117px;
-  left: 960px;
-  top: 0px;
+  left: 207px;
+  top: 438px;;
 }
 
-.city__item__logo {
+.stone__3 {
   position: absolute;
-  width: 69px;
-  height: 87px;
-  left: 16px;
-  top: 18px;
+  left: 217px;
+  top: 263px;
 }
 
-.city__item__name {
+.stone__4 {
   position: absolute;
-  width: 800px;
-  height: 64px;
-  left: 113px;
-  top: 18px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 64px;
-  line-height: 100%;
-  color: #00749E;
+  left: 277px;
+  top: 580px;
 }
 
-.city__item__heading {
+.stone__5 {
   position: absolute;
-  width: 277px;
-  height: 22px;
-  left: 113px;
-  top: 82px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 100%;
-  color: #00749E;
+  left: 415px;
+  top: 645px;
 }
 
-.city__item__text {
+.stone__6 {
   position: absolute;
-  width: 852px;
-  height: 370px;
-  left: 1014px;
-  top: 121px;
-  overflow: auto;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 126.5%;
-  color: #00749E;
+  left: 366px;
+  top: 597px;
 }
 
-.city__item__history {
+.stone__7 {
   position: absolute;
-  width: 852px;
-  height: 900px;
-  left: 1014px;
-  top: 121px;
-  overflow: auto;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 126.5%;
-  color: #00749E;
+  left: 345px;
+  top: 664px;
 }
 
-.city__item__gallery {
+.stone__8 {
   position: absolute;
-  width: 852px;
-  height: 900px;
-  left: 1014px;
-  top: 121px;
-  overflow: auto;
-  display: none;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
+  left: 359px;
+  top: 552px;
 }
 
-.gallery__img {
-  width: 100%;
-  height: 100%;
-}
-
-.city__item__video {
+.stone__9 {
   position: absolute;
-  left: 1014px;
-  top: 321px;
+  left: 328px;
+  top: 542px;
+}
+
+.stone__10 {
+  position: absolute;
+  left: 221px;
+  top: 499px;
+}
+
+.brown__1 {
+  position: absolute;
+  left: 452px;
+  top: 204px;
+}
+
+.brown__2 {
+  position: absolute;
+  left: 542px;
+  top: 171px;
+}
+
+.brown__3 {
+  position: absolute;
+  left: 513px;
+  top: 194px;
+}
+
+.brown__4 {
+  position: absolute;
+  left: 318px;
+  top: 232px;
+}
+
+.brown__5 {
+  position: absolute;
+  left: 249px;
+  top: 109px;
+}
+
+.iron__1 {
+  position: absolute;
+  left: 317px;
+  top: 206px;
+}
+
+.iron__2 {
+  position: absolute;
+  left: 477px;
+  top: 671px;
+}
+
+.iron__3 {
+  position: absolute;
+  left: 436px;
+  top: 797px;
+}
+
+.iron__4 {
+  position: absolute;
+  left: 413px;
+  top: 830px;
+}
+
+.iron__5 {
+  position: absolute;
+  left: 389px;
+  top: 747px;
+}
+
+.manganese__1 {
+  position: absolute;
+  left: 100px;
+  top: 474px;
+}
+
+.manganese__2 {
+  position: absolute;
+  left: 501px;
+  top: 538px;
+}
+
+.aluminum {
+  position: absolute;
+  left: 228px;
+  top: 220px;
+}
+
+.polymet {
+  position: absolute;
+  left: 130px;
+  top: 531px;
+}
+
+.gold__1 {
+  position: absolute;
+  left: 408px;
+  top: 247px;
+}
+
+.gold__2 {
+  position: absolute;
+  left: 386px;
+  top: 310px;  
+}
+
+.gold__3 {
+  position: absolute;
+  left: 432px;
+  top: 273px; 
+}
+
+.fireclay__1 {
+  position: absolute;
+  left: 258px;
+  top: 236px;
+}
+
+.fireclay__2 {
+  position: absolute;
+  left: 291px;
+  top: 724px;
+}
+
+.fireclay__3 {
+  position: absolute;
+  left: 126px;
+  top: 474px;
+}
+
+.phosphorites {
+  position: absolute;
+  left: 478px;
+  top: 850px;
 }

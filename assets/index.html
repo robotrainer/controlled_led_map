@@ -14,56 +14,109 @@
 <body>
 
   <div class="header">
-    <div class="header__city">ГОРОДА КУЗБАССА</div>
-    <div class="header__mineral">ПОЛЕЗНЫЕ ИСКОПАЕМЫЕ</div>
-    <div class="header__miracle">ЧУДЕСА КУЗБАССА</div>
+    <div class="header__switch header__city underline">ГОРОДА КУЗБАССА</div>
+    <div class="header__switch header__mineral">ПОЛЕЗНЫЕ ИСКОПАЕМЫЕ</div>
+    <div class="header__switch header__miracle">ЧУДЕСА КУЗБАССА</div>
   </div>
 
   <div class="map">
-    <div class="map__city kemerovo">КЕМЕРОВО</div>
-    <div class="map__city leninsk">ЛЕНИНСК-КУЗНЕЦКИЙ</div>
-    <div class="map__city jurga">ЮРГА</div>
-    <div class="map__city belovo">БЕЛОВО</div>
-    <div class="map__city berezovsky">БЕРЁЗОВСКИЙ</div>
-    <div class="map__city gurievsk">ГУРЬЕВСК</div>
-    <div class="map__city kaltan">КАЛТАН</div>
-    <div class="map__city angero">АНЖЕРО-СУДЖИНСК</div>
-    <div class="map__city kiselevsk">КИСЕЛЁВСК</div>
-    <div class="map__city mariinsk">МАРИИНСК</div>
-    <div class="map__city mezhdurechensk">МЕЖДУРЕЧЕНСК</div>
-    <div class="map__city promyshlennaya">ПРОМЫШЛЕННАЯ</div>
-    <div class="map__city novokuznetsk">НОВОКУЗНЕЦК</div>
-    <div class="map__city osinniki">ОСИННИКИ</div>
-    <div class="map__city polysaevo">ПОЛЫСАЕВО</div>
-    <div class="map__city prokopyevsk">ПРОКОПЬЕВСК</div>
-    <div class="map__city yashkino">ЯШКИНО</div>
-    <div class="map__city taiga">ТАЙГА</div>
-    <div class="map__city tashtagol">ТАШТАГОЛ</div>
-    <div class="map__city topki">ТОПКИ</div>
-    <div class="map__city myski">МЫСКИ</div>
-    <div class="map__city sheregesh">ШЕРЕГЕШ</div>
-    <div class="eliipse__kemerovo"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__leninsk"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__jurga"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__belovo"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__berezovsky"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__gurievsk"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__kaltan"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__angero"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__kiselevsk"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__mariinsk"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__mezhdurechensk"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__myski"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__novokuznetsk"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__osinniki"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__polysaevo"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__prokopyevsk"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__promyshlennaya"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__taiga"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__tashtagol"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__topki"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__yashkino"><img src="./images/Ellipse.svg" alt=""></div>
-    <div class="eliipse__sheregesh"><img src="./images/Ellipse.svg" alt=""></div>
+
+    <div class="cities">
+      <div class="map__city kemerovo">КЕМЕРОВО</div>
+      <div class="map__city leninsk">ЛЕНИНСК-КУЗНЕЦКИЙ</div>
+      <div class="map__city jurga">ЮРГА</div>
+      <div class="map__city belovo">БЕЛОВО</div>
+      <div class="map__city berezovsky">БЕРЁЗОВСКИЙ</div>
+      <div class="map__city gurievsk">ГУРЬЕВСК</div>
+      <div class="map__city kaltan">КАЛТАН</div>
+      <div class="map__city angero">АНЖЕРО-СУДЖИНСК</div>
+      <div class="map__city kiselevsk">КИСЕЛЁВСК</div>
+      <div class="map__city mariinsk">МАРИИНСК</div>
+      <div class="map__city mezhdurechensk">МЕЖДУРЕЧЕНСК</div>
+      <div class="map__city promyshlennaya">ПРОМЫШЛЕННАЯ</div>
+      <div class="map__city novokuznetsk">НОВОКУЗНЕЦК</div>
+      <div class="map__city osinniki">ОСИННИКИ</div>
+      <div class="map__city polysaevo">ПОЛЫСАЕВО</div>
+      <div class="map__city prokopyevsk">ПРОКОПЬЕВСК</div>
+      <div class="map__city yashkino">ЯШКИНО</div>
+      <div class="map__city taiga">ТАЙГА</div>
+      <div class="map__city tashtagol">ТАШТАГОЛ</div>
+      <div class="map__city topki">ТОПКИ</div>
+      <div class="map__city myski">МЫСКИ</div>
+      <div class="map__city sheregesh">ШЕРЕГЕШ</div>
+    </div>
+
+    <div class="ellipses">
+      <div class="ellipse__kemerovo"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__leninsk"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__jurga"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__belovo"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__berezovsky"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__gurievsk"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__kaltan"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__angero"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__kiselevsk"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__mariinsk"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__mezhdurechensk"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__myski"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__novokuznetsk"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__osinniki"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__polysaevo"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__prokopyevsk"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__promyshlennaya"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__taiga"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__tashtagol"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__topki"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__yashkino"><img src="./images/Ellipse.svg" alt=""></div>
+      <div class="ellipse__sheregesh"><img src="./images/Ellipse.svg" alt=""></div>
+    </div>
+
+    <div class="minerals hidden">
+      <div class="stone stone__1"><img src="./images/minerals/stone.svg" alt=""></div>
+      <div class="stone stone__2"><img src="./images/minerals/stone.svg" alt=""></div>
+      <div class="stone stone__3"><img src="./images/minerals/stone.svg" alt=""></div>
+      <div class="stone stone__4"><img src="./images/minerals/stone.svg" alt=""></div>
+      <div class="stone stone__5"><img src="./images/minerals/stone.svg" alt=""></div>
+      <div class="stone stone__6"><img src="./images/minerals/stone.svg" alt=""></div>
+      <div class="stone stone__7"><img src="./images/minerals/stone.svg" alt=""></div>
+      <div class="stone stone__8"><img src="./images/minerals/stone.svg" alt=""></div>
+      <div class="stone stone__9"><img src="./images/minerals/stone.svg" alt=""></div>
+      <div class="stone stone__10"><img src="./images/minerals/stone.svg" alt=""></div>
+
+      <div class="brown brown__1"><img src="./images/minerals/brown.svg" alt=""></div>
+      <div class="brown brown__2"><img src="./images/minerals/brown.svg" alt=""></div>
+      <div class="brown brown__3"><img src="./images/minerals/brown.svg" alt=""></div>
+      <div class="brown brown__4"><img src="./images/minerals/brown.svg" alt=""></div>
+      <div class="brown brown__5"><img src="./images/minerals/brown.svg" alt=""></div>
+
+      <div class="iron iron__1"><img src="./images/minerals/iron.svg" alt=""></div>
+      <div class="iron iron__2"><img src="./images/minerals/iron.svg" alt=""></div>
+      <div class="iron iron__3"><img src="./images/minerals/iron.svg" alt=""></div>
+      <div class="iron iron__4"><img src="./images/minerals/iron.svg" alt=""></div>
+      <div class="iron iron__5"><img src="./images/minerals/iron.svg" alt=""></div>
+
+      <div class="manganese manganese__1"><img src="./images/minerals/manganese.svg" alt=""></div>
+      <div class="manganese manganese__2"><img src="./images/minerals/manganese.svg" alt=""></div>
+
+      <div class="aluminum"><img src="./images/minerals/aluminum.svg" alt=""></div>
+
+      <div class="polymet"><img src="./images/minerals/polymet.svg" alt=""></div>
+
+      <div class="gold gold__1"><img src="./images/minerals/gold.svg" alt=""></div>
+      <div class="gold gold__2"><img src="./images/minerals/gold.svg" alt=""></div>
+      <div class="gold gold__3"><img src="./images/minerals/gold.svg" alt=""></div>
+
+      <div class="fireclay fireclay__1"><img src="./images/minerals/fireclay.svg" alt=""></div>
+      <div class="fireclay fireclay__2"><img src="./images/minerals/fireclay.svg" alt=""></div>
+      <div class="fireclay fireclay__3"><img src="./images/minerals/fireclay.svg" alt=""></div>
+
+      <div class="phosphorites"><img src="./images/minerals/phosphorites.svg" alt=""></div>
+    </div>
+
+    <div class="miracle">
+
+    </div>
+
     <img src="./images/MapClean.svg" alt="Карта Кемеровской области" box-shadow="0 0 12px">
   </div>
 
@@ -116,6 +169,38 @@
       <input class="button__district" data-name="sheregesh" type="button" value="ШЕРЕГЕШ">
     </div>
 
+  </div>
+
+  <div class="button__minerals">
+    <div class="left__buttom__minerals">
+      <input class="button__mineral" data-name="stone" type="button" value="КАМЕННЫЙ УГОЛЬ">
+      <input class="button__mineral" data-name="brown" type="button" value="БУРЫЙ УГОЛЬ">
+      <input class="button__mineral" data-name="iron" type="button" value="ЖЕЛЕЗНАЯ РУДА">
+      <input class="button__mineral" data-name="manganese" type="button" value="МАРГАНЦЕВАЯ РУДА">
+      <input class="button__mineral" data-name="aluminum" type="button" value="АЛЮМИНИЕВАЯ РУДА">
+    </div>
+
+    <div class="right__buttom__minerals">
+      <input class="button__mineral" data-name="polymet" type="button" value="ПОЛИМЕТ РУДА">
+      <input class="button__mineral" data-name="gold" type="button" value="ЗОЛОТО">
+      <input class="button__mineral" data-name="fireclay" type="button" value="ОГНЕУПОРНАЯ ГЛИНА">
+      <input class="button__mineral" data-name="phosphorites" type="button" value="ФОСФОРИТЫ">
+    </div>
+  </div>
+
+  <div class="button__miracles">
+    <div class="h__miracle">ЧУДЕСА</div>
+    <input class="button__miracle" data-name="" type="button" value="ПОДНЕБЕСНЫЕ ЗУБЬЯ">
+    <input class="button__miracle" data-name="" type="button" value="КУЗНЕЦКАЯ КРЕПОСТЬ">
+    <input class="button__miracle" data-name="" type="button" value="АЗАССКАЯ ПЕЩЕРА">
+    <input class="button__miracle" data-name="" type="button" value="СКУЛЬПТУРА «ЗОЛОТАЯ ШОРИЯ»">
+    <input class="button__miracle" data-name="" type="button" value="МУЗЕЙ-ЗАПОВЕДНИК «ТОМСКАЯ ПИСАНИЦА»">
+    <input class="button__miracle" data-name="" type="button" value="МАРИИНСК – ГОРОД-МУЗЕЙ ПОД ОТКРЫТЫМ НЕБОМ">
+    <input class="button__miracle" data-name="" type="button" value="МОНУМЕНТ  «ПАМЯТЬ ШАХТЕРАМ КУЗБАССА»">
+    <div class="h__lakes">ОЗЁРА</div>
+    <input class="button__miracle" data-name="" type="button" value="РЫБНОЕ">
+    <input class="button__miracle" data-name="" type="button" value="БОЛЬШОЙ БЕРЧИКУЛЬ">
+    <input class="button__miracle" data-name="" type="button" value="ТАНАЙ">
   </div>
 
   <div class="city__item__info hidden">
