@@ -1,35 +1,10 @@
 let socket = io();
 
-const ledCity = {
-  "off": 100,
-  "kemerovo": 0,
-  "leninsk": 1,
-  "jurga": 2,
-  "belovo": 3,
-  "berezovsky": 4,
-  "gurievsk": 5,
-  "kaltan": 6,
-  "angero": 7,
-  "kiselevsk": 8,
-  "mariinsk": 9,
-  "mezhdurechensk": 10,
-  "promyshlennaya": 11,
-  "novokuznetsk": 12,
-  "osinniki": 13,
-  "polysaevo": 14,
-  "prokopyevsk": 15,
-  "yashkino": 16,
-  "taiga": 17,
-  "tashtagol": 18,
-  "topki": 19,
-  "myski": 20,
-  "sheregesh": 21
-}
-
 const home = document.querySelector(".home");
 const back = document.querySelector(".back");
 const info = document.querySelector(".map__info");
-const button = document.querySelectorAll(".button__district");
+const buttonDistict = document.querySelectorAll(".button__district");
+const buttonMineral = document.querySelectorAll(".button__mineral");
 const districtItems = document.querySelector(".button__districts");
 const mineralItems = document.querySelector(".button__minerals");
 const miracleItems = document.querySelector(".button__miracles");
@@ -41,10 +16,13 @@ const cityItemName = document.querySelector(".city__item__name");
 const cityItemHeading = document.querySelector(".city__item__heading");
 const cityItemButton = document.querySelectorAll(".city__item__button");
 const cityItemHistory = document.querySelector(".city__item__history");
+const mineralItemInfo = document.querySelector(".mineral__item__info");
+const mineralItemName = document.querySelector(".mineral__item__name");
 const mapCities = document.querySelectorAll(".map__city");
 const cities = document.querySelector(".cities");
 const ellipses = document.querySelector(".ellipses");
 const minerals = document.querySelector(".minerals");
+const miracles = document.querySelector(".miracles");
 const headerSwitch = document.querySelectorAll(".header__switch");
 
 headerSwitch.forEach(s => {
@@ -62,6 +40,7 @@ headerSwitch.forEach(s => {
       cities.classList.remove("hidden");
       ellipses.classList.remove("hidden");
       minerals.classList.add("hidden");
+      miracles.classList.add("hidden");
     } else if (s.textContent == "ПОЛЕЗНЫЕ ИСКОПАЕМЫЕ") {
       districtItems.style.display = "none";
       mineralItems.style.display = "flex";
@@ -69,6 +48,7 @@ headerSwitch.forEach(s => {
       cities.classList.add("hidden");
       ellipses.classList.add("hidden");
       minerals.classList.remove("hidden");
+      miracles.classList.add("hidden");
     } else if (s.textContent == "ЧУДЕСА КУЗБАССА") {
       districtItems.style.display = "none";
       mineralItems.style.display = "none";
@@ -76,16 +56,17 @@ headerSwitch.forEach(s => {
       cities.classList.add("hidden");
       ellipses.classList.add("hidden");
       minerals.classList.add("hidden");
+      miracles.classList.remove("hidden");
     }
   });
 });
 
-button.forEach(b => {
-  b.addEventListener("click", function () {
-    let districtName = this.value;
-    let dataName = this.getAttribute("data-name");
+buttonDistict.forEach(button => {
+  button.addEventListener("click", function () {
+    const districtName = this.value;
+    const dataName = this.getAttribute("data-name");
 
-    socket.emit("click district", ledCity[`${dataName}`]);
+    socket.emit("click district", dataName);
 
     districtItems.style.display = "none";
     home.classList.remove("hidden");
@@ -93,10 +74,33 @@ button.forEach(b => {
     document.body.style.backgroundImage = "url(images/BGpointsHalf.png)";
     cityItemsButtons.style.display = "flex";
     cityItemText.classList.remove("hidden");
-    cityItemLogo.src = `./images/logo/${dataName}.svg`;
+    cityItemLogo.src = `./images/logo/${dataName}.png`;
     cityItemName.textContent = districtName;
     cityItemInfo.classList.remove("hidden");
+    document.querySelector("video").src = `./videos/${dataName}.mp4`;
     document.querySelector(`.${dataName}`).style.fontSize = "18px";
+  });
+});
+
+let iconMineral = "";
+buttonMineral.forEach(button => {
+  button.addEventListener("click", function () {
+    const mineralName = this.value;
+    const dataName = this.getAttribute("data-name");
+    iconMineral = document.querySelectorAll(`.${dataName}`);
+
+    socket.emit("click mineral", dataName);
+
+    mineralItems.style.display = "none";
+    home.classList.remove("hidden");
+    info.classList.add("hidden");
+    document.body.style.backgroundImage = "url(images/BGpointsHalf.png)";
+    iconMineral.forEach(i => {
+      i.style.width = "28px";
+      i.style.height = "28px";
+    });
+    mineralItemInfo.classList.remove("hidden");
+    mineralItemName.textContent = mineralName;
   });
 });
 
@@ -124,28 +128,40 @@ socket.on("history", (history) => {
 });
 
 home.addEventListener("click", () => {
-  socket.emit("click district", ledCity.off);
-  cityItemText.innerHTML = "";
-  cityItemHistory.innerHTML = "";
-  districtItems.style.display = "flex";
+  const underline = document.querySelector(".underline");
+
+  if (underline.textContent == "ГОРОДА КУЗБАССА") {
+    socket.emit("click district", "off");
+    cityItemHistory.innerHTML = "";
+    districtItems.style.display = "flex";
+    cityItemText.innerHTML = "";
+    cityItemsButtons.style.display = "none";
+    cityItemText.classList.add("hidden");
+    cityItemInfo.classList.add("hidden");
+    mapCities.forEach(city => {
+      city.style.fontSize = "12px";
+    });
+    cityItemHeading.classList.add("hidden");
+    cityItemHistory.classList.add("hidden");
+    document.querySelector(".city__item__gallery").style.display = "none";
+    document.querySelector(".city__item__video").classList.add("hidden");
+    back.classList.add("hidden");
+  } else if (underline.textContent == "ПОЛЕЗНЫЕ ИСКОПАЕМЫЕ") {
+    mineralItems.style.display = "flex";
+    iconMineral.forEach(i => {
+      i.style.width = "14px";
+      i.style.height = "14px";
+    });
+    mineralItemInfo.classList.add("hidden");
+  }
+
   home.classList.add("hidden");
   info.classList.remove("hidden");
   document.body.style.backgroundImage = "url(images/BGpoints.png)";
-  cityItemsButtons.style.display = "none";
-  cityItemText.classList.add("hidden");
-  cityItemInfo.classList.add("hidden");
-  mapCities.forEach(city => {
-    city.style.fontSize = "12px";
-  });
-  cityItemHeading.classList.add("hidden");
-  cityItemHistory.classList.add("hidden");
-  document.querySelector(".city__item__gallery").style.display = "none";
-  document.querySelector(".city__item__video").classList.add("hidden");
-  back.classList.add("hidden");
 });
 
-cityItemButton.forEach(b => {
-  b.addEventListener("click", function () {
+cityItemButton.forEach(button => {
+  button.addEventListener("click", function () {
     const heading = this.value;
 
     if (heading == "ИСТОРИЧЕСКАЯ СПРАВКА") {

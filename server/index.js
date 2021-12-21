@@ -3,9 +3,9 @@ const http = require("http");
 const { Server } = require("socket.io");
 const config = require("./config.json");
 const SerialPort = require("serialport");
-const cityData = require("./db/citydata.json");
+const citiesInfo = require("./db/citydata_Small.json");
 const ledCity = require("./db/ledCity.json");
-const citiesHistory = require("./db/citieshistory.json");
+const citiesHistory = require("./db/citydata_Big.json");
 
 const app = express();
 const server = http.createServer(app);
@@ -18,37 +18,20 @@ app.use("/", express.static("assets"));
 io.on("connection", (socket) => {
   console.log("User connected");
 
-  socket.on("click district", (signal) => {
+  socket.on("click district", (districtName) => {
     const buf = new Buffer.from([1]);
-    buf.writeUInt8(signal, 0);
-    console.log("signal: " + signal);
+    buf.writeUInt8(ledCity[districtName], 0);
+    console.log("signal: " + ledCity[districtName]);
     serialPort.write(buf);
 
-    let cityInfo = new Object();
-    let cityHistory = new Object();
-
-    if (signal == ledCity.kemerovo) {
-      cityInfo = cityData.kemerovo;
-      cityHistory = citiesHistory.kemerovo;
-    } else if (signal == ledCity.leninsk) {
-      cityInfo = cityData.leninsk;
-      cityHistory = citiesHistory.leninsk;
-    } else if (signal == ledCity.novokuznetsk) {
-      cityInfo = cityData.novokuznetsk;
-      cityHistory = citiesHistory.novokuznetsk;
-    } else if (signal = ledCity.promyshlennaya) {
-      cityInfo = cityData.promyshlennaya;
-      cityHistory = citiesHistory.promyshlennaya;
-    }
-
-    if (signal != 100) {
-      socket.emit("click district", cityInfo);
-      socket.emit("history", cityHistory);
+    if (districtName != "off") {
+      socket.emit("click district", citiesInfo[districtName]);
+      socket.emit("history", citiesHistory[districtName]);
     }
   });
 
-  socket.on("history", (cityName) => {
-    console.log(cityName);
+  socket.on("click mineral", mineralName => {
+    console.log(mineralName);
   });
 
   socket.on("disconnect", () => {

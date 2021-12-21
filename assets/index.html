@@ -113,8 +113,17 @@
       <div class="phosphorites"><img src="./images/minerals/phosphorites.svg" alt=""></div>
     </div>
 
-    <div class="miracle">
-
+    <div class="miracles hidden">
+      <div class="berchikul"><img src="./images/miracles/berchikul.svg" alt=""></div>
+      <div class="cave"><img src="./images/miracles/cave.svg" alt=""></div>
+      <div class="fortress"><img src="./images/miracles/fortress.svg" alt=""></div>
+      <div class="monument"><img src="./images/miracles/monument.svg" alt=""></div>
+      <div class="museumcity"><img src="./images/miracles/museumcity.svg" alt=""></div>
+      <div class="rybnoe"><img src="./images/miracles/rybnoe.svg" alt=""></div>
+      <div class="sculpture"><img src="./images/miracles/sculpture.svg" alt=""></div>
+      <div class="tanai"><img src="./images/miracles/tanai.svg" alt=""></div>
+      <div class="teeth"><img src="./images/miracles/teeth.svg" alt=""></div>
+      <div class="writing"><img src="./images/miracles/writing.svg" alt=""></div>
     </div>
 
     <img src="./images/MapClean.svg" alt="Карта Кемеровской области" box-shadow="0 0 12px">
@@ -190,23 +199,28 @@
 
   <div class="button__miracles">
     <div class="h__miracle">ЧУДЕСА</div>
-    <input class="button__miracle" data-name="" type="button" value="ПОДНЕБЕСНЫЕ ЗУБЬЯ">
-    <input class="button__miracle" data-name="" type="button" value="КУЗНЕЦКАЯ КРЕПОСТЬ">
-    <input class="button__miracle" data-name="" type="button" value="АЗАССКАЯ ПЕЩЕРА">
-    <input class="button__miracle" data-name="" type="button" value="СКУЛЬПТУРА «ЗОЛОТАЯ ШОРИЯ»">
-    <input class="button__miracle" data-name="" type="button" value="МУЗЕЙ-ЗАПОВЕДНИК «ТОМСКАЯ ПИСАНИЦА»">
-    <input class="button__miracle" data-name="" type="button" value="МАРИИНСК – ГОРОД-МУЗЕЙ ПОД ОТКРЫТЫМ НЕБОМ">
-    <input class="button__miracle" data-name="" type="button" value="МОНУМЕНТ  «ПАМЯТЬ ШАХТЕРАМ КУЗБАССА»">
+    <input class="button__miracle" data-name="teeth" type="button" value="ПОДНЕБЕСНЫЕ ЗУБЬЯ">
+    <input class="button__miracle" data-name="fortress" type="button" value="КУЗНЕЦКАЯ КРЕПОСТЬ">
+    <input class="button__miracle" data-name="cave" type="button" value="АЗАССКАЯ ПЕЩЕРА">
+    <input class="button__miracle" data-name="sculpture" type="button" value="СКУЛЬПТУРА «ЗОЛОТАЯ ШОРИЯ»">
+    <input class="button__miracle" data-name="writing" type="button" value="МУЗЕЙ-ЗАПОВЕДНИК «ТОМСКАЯ ПИСАНИЦА»">
+    <input class="button__miracle" data-name="museumcity" type="button"
+      value="МАРИИНСК – ГОРОД-МУЗЕЙ ПОД ОТКРЫТЫМ НЕБОМ">
+    <input class="button__miracle" data-name="monument" type="button" value="МОНУМЕНТ  «ПАМЯТЬ ШАХТЕРАМ КУЗБАССА»">
     <div class="h__lakes">ОЗЁРА</div>
-    <input class="button__miracle" data-name="" type="button" value="РЫБНОЕ">
-    <input class="button__miracle" data-name="" type="button" value="БОЛЬШОЙ БЕРЧИКУЛЬ">
-    <input class="button__miracle" data-name="" type="button" value="ТАНАЙ">
+    <input class="button__miracle" data-name="rybnoe" type="button" value="РЫБНОЕ">
+    <input class="button__miracle" data-name="berchikul" type="button" value="БОЛЬШОЙ БЕРЧИКУЛЬ">
+    <input class="button__miracle" data-name="tanai" type="button" value="ТАНАЙ">
   </div>
 
   <div class="city__item__info hidden">
     <img class="city__item__logo" src="" alt="">
     <div class="city__item__name"></div>
     <div class="city__item__heading hidden"></div>
+  </div>
+
+  <div class="mineral__item__info hidden">
+    <div class="mineral__item__name"></div>
   </div>
 
   <div class="city__item__text hidden"></div>
@@ -231,7 +245,7 @@
   </div>
 
   <div class="city__item__video hidden">
-    <video src="./videos/Anzherka_Voice.mp4" controls width="852px" height="auto"></video>
+    <video src="" controls width="852px" height="auto"></video>
   </div>
 
 

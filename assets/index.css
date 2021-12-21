@@ -445,6 +445,28 @@ body {
   top: 321px;
 }
 
+.mineral__item__info {
+  position: absolute;
+  width: 960px;
+  height: 117px;
+  left: 960px;
+  top: 0px;
+}
+
+.mineral__item__name {
+  position: absolute;
+  width: 800px;
+  height: 64px;
+  left: 113px;
+  top: 18px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 100%;
+  color: #00749E;
+}
+
 .map__city {
   font-family: Roboto;
   font-style: normal;
@@ -910,4 +932,85 @@ body {
   position: absolute;
   left: 478px;
   top: 850px;
+}
+
+.berchikul {
+  position: absolute;
+  left: 407px;
+  top: 228px;
+  width: 98px;
+  height: 27px;
+}
+
+.cave {
+  position: absolute;
+  width: 92px;
+  height: 27px;
+  left: 228px;
+  top: 623px;
+}
+
+.fortress {
+  position: absolute;
+  width: 105px;
+  height: 27px;
+  left: 316px;
+  top: 573px;
+}
+
+.monument {
+  position: absolute;
+  width: 153px;
+  height: 28px;
+  left: 173px;
+  top: 273px;
+}
+
+.museumcity {
+  position: absolute;
+  left: 284px;
+  top: 85px;
+  width: 140px;
+  height: 29px;
+}
+
+.rybnoe {
+  position: absolute;
+  width: 48px;
+  height: 27px;
+  left: 435px;
+  top: 436px;
+}
+
+.sculpture {
+  position: absolute;
+  width: 106px;
+  height: 24px;
+  left: 411px;
+  top: 821px;
+}
+
+.tanai {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: 70px;
+  top: 452px;
+  
+}
+
+.teeth {
+  position: absolute;
+  width: 108.55px;
+  height: 26px;
+  left: 415px;
+  top: 618px;
+}
+
+.writing {
+  position: absolute;
+  width: 73px;
+  height: 29px;
+  left: 93px;
+  top: 217px;
 }
