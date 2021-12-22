@@ -316,7 +316,7 @@ body {
   color: #FFFFFF;
 }
 
-.city__item__buttons {
+.city__item__buttons, .miracle__item__buttons {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -328,7 +328,7 @@ body {
   top: calc(50% + 241.5px);
 }
 
-.city__item__button {
+.city__item__button, .miracle__item__button {
   position: static;
   width: 688px;
   height: 80px;
@@ -378,7 +378,7 @@ body {
   color: #00749E;
 }
 
-.city__item__heading {
+.city__item__heading, .miracle__item__heading {
   position: absolute;
   width: 277px;
   height: 22px;
@@ -422,7 +422,7 @@ body {
   color: #00749E;
 }
 
-.city__item__gallery {
+.city__item__gallery, .miracle__item__gallery {
   position: absolute;
   width: 852px;
   height: 900px;
@@ -439,7 +439,7 @@ body {
   height: 100%;
 }
 
-.city__item__video {
+.city__item__video, .miracle__item__video {
   position: absolute;
   left: 1014px;
   top: 321px;

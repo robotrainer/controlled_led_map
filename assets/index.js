@@ -9,7 +9,7 @@ const buttonMiracle = document.querySelectorAll(".button__miracle");
 const districtItems = document.querySelector(".button__districts");
 const mineralItems = document.querySelector(".button__minerals");
 const miracleItems = document.querySelector(".button__miracles");
-const cityItemsButtons = document.querySelector(".city__item__buttons");
+const cityItemButtons = document.querySelector(".city__item__buttons");
 const cityItemText = document.querySelector(".city__item__text");
 const cityItemInfo = document.querySelector(".city__item__info");
 const cityItemLogo = document.querySelector(".city__item__logo");
@@ -17,12 +17,17 @@ const cityItemName = document.querySelector(".city__item__name");
 const cityItemHeading = document.querySelector(".city__item__heading");
 const cityItemButton = document.querySelectorAll(".city__item__button");
 const cityItemHistory = document.querySelector(".city__item__history");
+const cityItemVideo = document.querySelector(".city__item__video");
 const mineralItemInfo = document.querySelector(".mineral__item__info");
 const mineralItemName = document.querySelector(".mineral__item__name");
 const mineralItemText = document.querySelector(".mineral__item__text");
 const miracleItemInfo = document.querySelector(".miracle__item__info");
 const miracleItemName = document.querySelector(".miracle__item__name");
 const miracleItemText = document.querySelector(".miracle__item__text");
+const miracleItemHeading = document.querySelector(".miracle__item__heading");
+const miracleItemButtons = document.querySelector(".miracle__item__buttons");
+const miracleItemBotton = document.querySelectorAll(".miracle__item__button");
+const miracleItemVideo = document.querySelector(".miracle__item__video");
 const mapCities = document.querySelectorAll(".map__city");
 const cities = document.querySelector(".cities");
 const ellipses = document.querySelector(".ellipses");
@@ -77,12 +82,12 @@ buttonDistict.forEach(button => {
     home.classList.remove("hidden");
     info.classList.add("hidden");
     document.body.style.backgroundImage = "url(images/BGpointsHalf.png)";
-    cityItemsButtons.style.display = "flex";
+    cityItemButtons.style.display = "flex";
     cityItemText.classList.remove("hidden");
     cityItemLogo.src = `./images/logo/${dataName}.png`;
     cityItemName.textContent = districtName;
     cityItemInfo.classList.remove("hidden");
-    document.querySelector("video").src = `./videos/${dataName}.mp4`;
+    cityItemVideo.querySelector("video").src = `./videos/cities/${dataName}.mp4`;
     document.querySelector(`.${dataName}`).style.fontSize = "18px";
   });
 });
@@ -102,6 +107,30 @@ socket.on("history", (history) => {
     let p = document.createElement("p");
     cityItemHistory.appendChild(p);
     p.textContent = text;
+  });
+});
+
+cityItemButton.forEach(button => {
+  button.addEventListener("click", function () {
+    const heading = this.value;
+
+    if (heading == "ИСТОРИЧЕСКАЯ СПРАВКА") {
+      cityItemHistory.classList.remove("hidden");
+    }
+
+    if (heading == "ФОТОАЛЬБОМ") {
+      document.querySelector(".city__item__gallery").style.display = "grid";
+    }
+
+    if (heading == "ВИДЕО-ВИЗИТКА ГОРОДА") {
+      document.querySelector(".city__item__video").classList.remove("hidden");
+    }
+
+    cityItemHeading.textContent = heading;
+    cityItemHeading.classList.remove("hidden");
+    cityItemButtons.style.display = "none";
+    cityItemText.classList.add("hidden");
+    back.classList.remove("hidden");
   });
 });
 
@@ -151,11 +180,33 @@ buttonMiracle.forEach(button => {
     miracleItemInfo.classList.remove("hidden");
     miracleItemName.textContent = miracleName;
     miracleItemText.classList.remove("hidden");
+    miracleItemButtons.style.display = "flex";
+    miracleItemVideo.querySelector("video").src = `./videos/miracles/${dName}.mp4`;
   });
 });
 
 socket.on("click miracle", (info) => {
   addInfo(miracleItemText, info);
+});
+
+miracleItemBotton.forEach(button => {
+  button.addEventListener("click", function () {
+    const heading = this.value;
+
+    if (heading == "ФОТОАЛЬБОМ") {
+      document.querySelector(".miracle__item__gallery").style.display = "grid";
+    }
+
+    if (heading == "ВИДЕО-ВИЗИТКА") {
+      document.querySelector(".miracle__item__video").classList.remove("hidden");
+    }
+
+    miracleItemHeading.textContent = heading;
+    miracleItemHeading.classList.remove("hidden");
+    miracleItemButtons.style.display = "none";
+    miracleItemText.classList.add("hidden");
+    back.classList.remove("hidden");
+  });
 });
 
 home.addEventListener("click", () => {
@@ -169,7 +220,7 @@ home.addEventListener("click", () => {
     cityItemHistory.innerHTML = "";
     districtItems.style.display = "flex";
     cityItemText.innerHTML = "";
-    cityItemsButtons.style.display = "none";
+    cityItemButtons.style.display = "none";
     cityItemText.classList.add("hidden");
     cityItemInfo.classList.add("hidden");
     mapCities.forEach(city => {
@@ -199,41 +250,32 @@ home.addEventListener("click", () => {
     miracleItemInfo.classList.add("hidden");
     miracleItemText.classList.add("hidden");
     miracleItemText.innerHTML = "";
+    miracleItemButtons.style.display = "none";
+    miracleItemHeading.classList.add("hidden");
+    document.querySelector(".miracle__item__gallery").style.display = "none";
+    document.querySelector(".miracle__item__video").classList.add("hidden");
+    back.classList.add("hidden");
   }
-});
-
-cityItemButton.forEach(button => {
-  button.addEventListener("click", function () {
-    const heading = this.value;
-
-    if (heading == "ИСТОРИЧЕСКАЯ СПРАВКА") {
-      cityItemHistory.classList.remove("hidden");
-    }
-
-    if (heading == "ФОТОАЛЬБОМ") {
-      document.querySelector(".city__item__gallery").style.display = "grid";
-    }
-
-    if (heading == "ВИДЕО-ВИЗИТКА ГОРОДА") {
-      document.querySelector(".city__item__video").classList.remove("hidden");
-    }
-
-    cityItemHeading.textContent = heading;
-    cityItemHeading.classList.remove("hidden");
-    cityItemsButtons.style.display = "none";
-    cityItemText.classList.add("hidden");
-    back.classList.remove("hidden");
-  });
 });
 
 back.addEventListener("click", () => {
   back.classList.add("hidden");
-  cityItemsButtons.style.display = "flex";
-  cityItemHeading.classList.add("hidden");
-  cityItemText.classList.remove("hidden");
-  cityItemHistory.classList.add("hidden");
-  document.querySelector(".city__item__gallery").style.display = "none";
-  document.querySelector(".city__item__video").classList.add("hidden");
+
+  const underline = document.querySelector(".underline");
+  if (underline.textContent == "ГОРОДА КУЗБАССА") {
+    cityItemButtons.style.display = "flex";
+    cityItemHeading.classList.add("hidden");
+    cityItemText.classList.remove("hidden");
+    cityItemHistory.classList.add("hidden");
+    document.querySelector(".city__item__gallery").style.display = "none";
+    document.querySelector(".city__item__video").classList.add("hidden");
+  } else if (underline.textContent == "ЧУДЕСА КУЗБАССА") {
+    miracleItemButtons.style.display = "flex";
+    miracleItemHeading.classList.add("hidden");
+    miracleItemText.classList.remove("hidden");
+    document.querySelector(".miracle__item__gallery").style.display = "none";
+    document.querySelector(".miracle__item__video").classList.add("hidden");
+  }
 });
 
 function addInfo(domElem, getInfo) {
