@@ -17,6 +17,7 @@ const cityItemName = document.querySelector(".city__item__name");
 const cityItemHeading = document.querySelector(".city__item__heading");
 const cityItemButton = document.querySelectorAll(".city__item__button");
 const cityItemHistory = document.querySelector(".city__item__history");
+const cityItemGallery = document.querySelector(".city__item__gallery");
 const cityItemVideo = document.querySelector(".city__item__video");
 const mineralItemInfo = document.querySelector(".mineral__item__info");
 const mineralItemName = document.querySelector(".mineral__item__name");
@@ -71,12 +72,13 @@ headerSwitch.forEach(s => {
   });
 });
 
+let cityName = "";
 buttonDistict.forEach(button => {
   button.addEventListener("click", function () {
     const districtName = this.value;
-    const dataName = this.getAttribute("data-name");
+    cityName = this.getAttribute("data-name");
 
-    socket.emit("click district", dataName);
+    socket.emit("click district", cityName);
 
     districtItems.style.display = "none";
     home.classList.remove("hidden");
@@ -84,11 +86,11 @@ buttonDistict.forEach(button => {
     document.body.style.backgroundImage = "url(images/BGpointsHalf.png)";
     cityItemButtons.style.display = "flex";
     cityItemText.classList.remove("hidden");
-    cityItemLogo.src = `./images/logo/${dataName}.png`;
+    cityItemLogo.src = `./images/logo/${cityName}.png`;
     cityItemName.textContent = districtName;
     cityItemInfo.classList.remove("hidden");
-    cityItemVideo.querySelector("video").src = `./videos/cities/${dataName}.mp4`;
-    document.querySelector(`.${dataName}`).style.fontSize = "18px";
+    cityItemVideo.querySelector("video").src = `./videos/cities/${cityName}.mp4`;
+    document.querySelector(`.${cityName}`).style.fontSize = "18px";
   });
 });
 
@@ -119,11 +121,15 @@ cityItemButton.forEach(button => {
     }
 
     if (heading == "ФОТОАЛЬБОМ") {
-      document.querySelector(".city__item__gallery").style.display = "grid";
+      cityItemGallery.style.display = "grid";
+      const cityPictures = cityItemGallery.querySelectorAll(`[name="${cityName}"]`);
+      cityPictures.forEach(picture => {
+        picture.classList.remove("hidden");
+      });
     }
 
     if (heading == "ВИДЕО-ВИЗИТКА ГОРОДА") {
-      document.querySelector(".city__item__video").classList.remove("hidden");
+      cityItemVideo.classList.remove("hidden");
     }
 
     cityItemHeading.textContent = heading;
@@ -228,8 +234,12 @@ home.addEventListener("click", () => {
     });
     cityItemHeading.classList.add("hidden");
     cityItemHistory.classList.add("hidden");
-    document.querySelector(".city__item__gallery").style.display = "none";
-    document.querySelector(".city__item__video").classList.add("hidden");
+    cityItemGallery.style.display = "none";
+    cityItemVideo.classList.add("hidden");
+    const cityPictures = cityItemGallery.querySelectorAll(`[name="${cityName}"]`);
+    cityPictures.forEach(picture => {
+      picture.classList.add("hidden");
+    });
     back.classList.add("hidden");
   } else if (underline.textContent == "ПОЛЕЗНЫЕ ИСКОПАЕМЫЕ") {
     mineralItems.style.display = "flex";
