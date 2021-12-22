@@ -18,6 +18,7 @@ const cityItemButton = document.querySelectorAll(".city__item__button");
 const cityItemHistory = document.querySelector(".city__item__history");
 const mineralItemInfo = document.querySelector(".mineral__item__info");
 const mineralItemName = document.querySelector(".mineral__item__name");
+const mineralItemText = document.querySelector(".mineral__item__text");
 const mapCities = document.querySelectorAll(".map__city");
 const cities = document.querySelector(".cities");
 const ellipses = document.querySelector(".ellipses");
@@ -82,6 +83,24 @@ buttonDistict.forEach(button => {
   });
 });
 
+socket.on("click district", (info) => {
+  addInfo(cityItemText, info);
+});
+
+socket.on("history", (history) => {
+  const cityHistory = Object.values(history);
+  if (cityHistory.length == 0) {
+    document.querySelector(".history").classList.add("hidden");
+  } else {
+    document.querySelector(".history").classList.remove("hidden");
+  }
+  cityHistory.forEach(text => {
+    let p = document.createElement("p");
+    cityItemHistory.appendChild(p);
+    p.textContent = text;
+  });
+});
+
 let iconMineral = "";
 buttonMineral.forEach(button => {
   button.addEventListener("click", function () {
@@ -101,37 +120,19 @@ buttonMineral.forEach(button => {
     });
     mineralItemInfo.classList.remove("hidden");
     mineralItemName.textContent = mineralName;
+    mineralItemText.classList.remove("hidden");
   });
 });
 
-socket.on("click district", (info) => {
-  const cityInfo = Object.values(info);
-  cityInfo.forEach(text => {
-    let p = document.createElement("p");
-    cityItemText.appendChild(p);
-    p.textContent = text;
-  });
-});
-
-socket.on("history", (history) => {
-  const cityHistory = Object.values(history);
-  if (cityHistory.length == 0) {
-    document.querySelector(".history").classList.add("hidden");
-  } else {
-    document.querySelector(".history").classList.remove("hidden");
-  }
-  cityHistory.forEach(text => {
-    let p = document.createElement("p");
-    cityItemHistory.appendChild(p);
-    p.textContent = text;
-  });
+socket.on("click mineral", (info) => {
+  addInfo(mineralItemText, info);
 });
 
 home.addEventListener("click", () => {
   const underline = document.querySelector(".underline");
 
   if (underline.textContent == "ГОРОДА КУЗБАССА") {
-    socket.emit("click district", "off");
+    socket.emit("off leds", "off");
     cityItemHistory.innerHTML = "";
     districtItems.style.display = "flex";
     cityItemText.innerHTML = "";
@@ -153,6 +154,8 @@ home.addEventListener("click", () => {
       i.style.height = "14px";
     });
     mineralItemInfo.classList.add("hidden");
+    mineralItemText.classList.add("hidden");
+    mineralItemText.innerHTML = "";
   }
 
   home.classList.add("hidden");
@@ -193,3 +196,12 @@ back.addEventListener("click", () => {
   document.querySelector(".city__item__gallery").style.display = "none";
   document.querySelector(".city__item__video").classList.add("hidden");
 });
+
+function addInfo(domElem, getInfo) {
+  const info = Object.values(getInfo);
+  info.forEach(text => {
+    let p = document.createElement("p");
+    domElem.appendChild(p);
+    p.textContent = text;
+  });
+}

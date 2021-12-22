@@ -467,6 +467,21 @@ body {
   color: #00749E;
 }
 
+.mineral__item__text {
+  position: absolute;
+  width: 852px;
+  height: 900px;
+  left: 1014px;
+  top: 121px;
+  overflow: auto;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 126.5%;
+  color: #00749E;
+}
+
 .map__city {
   font-family: Roboto;
   font-style: normal;

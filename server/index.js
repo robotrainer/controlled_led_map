@@ -4,8 +4,9 @@ const { Server } = require("socket.io");
 const config = require("./config.json");
 const SerialPort = require("serialport");
 const citiesInfo = require("./db/citydata_Small.json");
-const ledCity = require("./db/ledCity.json");
+const led = require("./db/led.json");
 const citiesHistory = require("./db/citydata_Big.json");
+const mineralsInfo = require("./db/IscopData.json");
 
 const app = express();
 const server = http.createServer(app);
@@ -19,19 +20,18 @@ io.on("connection", (socket) => {
   console.log("User connected");
 
   socket.on("click district", (districtName) => {
-    const buf = new Buffer.from([1]);
-    buf.writeUInt8(ledCity[districtName], 0);
-    console.log("signal: " + ledCity[districtName]);
-    serialPort.write(buf);
-
-    if (districtName != "off") {
-      socket.emit("click district", citiesInfo[districtName]);
-      socket.emit("history", citiesHistory[districtName]);
-    }
+    sendSignalArduino(districtName);
+    socket.emit("click district", citiesInfo[districtName]);
+    socket.emit("history", citiesHistory[districtName]);
   });
 
-  socket.on("click mineral", mineralName => {
-    console.log(mineralName);
+  socket.on("click mineral", (mineralName) => {
+    sendSignalArduino(mineralName);
+    socket.emit("click mineral", mineralsInfo[mineralName]);
+  });
+
+  socket.on("off leds", (off) => {
+    sendSignalArduino(off);
   });
 
   socket.on("disconnect", () => {
@@ -43,3 +43,10 @@ io.on("connection", (socket) => {
 server.listen(config.PORT, () => {
   console.log(`listening on http://localhost:${config.PORT}`)
 });
+
+function sendSignalArduino(name) {
+  const buf = new Buffer.from([1]);
+  buf.writeUInt8(led[name], 0);
+  console.log("signal: " + led[name]);
+  serialPort.write(buf);
+};
