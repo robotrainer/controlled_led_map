@@ -5,6 +5,7 @@ const back = document.querySelector(".back");
 const info = document.querySelector(".map__info");
 const buttonDistict = document.querySelectorAll(".button__district");
 const buttonMineral = document.querySelectorAll(".button__mineral");
+const buttonMiracle = document.querySelectorAll(".button__miracle");
 const districtItems = document.querySelector(".button__districts");
 const mineralItems = document.querySelector(".button__minerals");
 const miracleItems = document.querySelector(".button__miracles");
@@ -19,6 +20,8 @@ const cityItemHistory = document.querySelector(".city__item__history");
 const mineralItemInfo = document.querySelector(".mineral__item__info");
 const mineralItemName = document.querySelector(".mineral__item__name");
 const mineralItemText = document.querySelector(".mineral__item__text");
+const miracleItemInfo = document.querySelector(".miracle__item__info");
+const miracleItemName = document.querySelector(".miracle__item__name");
 const mapCities = document.querySelectorAll(".map__city");
 const cities = document.querySelector(".cities");
 const ellipses = document.querySelector(".ellipses");
@@ -128,6 +131,25 @@ socket.on("click mineral", (info) => {
   addInfo(mineralItemText, info);
 });
 
+let dName = "";
+buttonMiracle.forEach(button => {
+  button.addEventListener("click", function () {
+    const miracleName = this.value;
+    dName = this.getAttribute("data-name");
+    const width = document.querySelector(`.${dName}`).offsetWidth;
+    const height = document.querySelector(`.${dName}`).offsetHeight;
+
+    miracleItems.style.display = "none";
+    home.classList.remove("hidden");
+    info.classList.add("hidden");
+    document.body.style.backgroundImage = "url(images/BGpointsHalf.png)";
+    document.querySelector(`.${dName}`).style.width = String(width * 1.5) + "px";
+    document.querySelector(`.${dName}`).style.height = String(height * 1.5) + "px";
+    miracleItemInfo.classList.remove("hidden");
+    miracleItemName.textContent = miracleName;
+  });
+});
+
 home.addEventListener("click", () => {
   const underline = document.querySelector(".underline");
 
@@ -156,6 +178,14 @@ home.addEventListener("click", () => {
     mineralItemInfo.classList.add("hidden");
     mineralItemText.classList.add("hidden");
     mineralItemText.innerHTML = "";
+  } else if (underline.textContent == "ЧУДЕСА КУЗБАССА") {
+    const width = document.querySelector(`.${dName}`).offsetWidth;
+    const height = document.querySelector(`.${dName}`).offsetHeight;
+
+    document.querySelector(`.${dName}`).style.width = String(width / 1.5) + "px";
+    document.querySelector(`.${dName}`).style.height = String(height / 1.5) + "px";
+    miracleItems.style.display = "flex";
+    miracleItemInfo.classList.add("hidden");
   }
 
   home.classList.add("hidden");

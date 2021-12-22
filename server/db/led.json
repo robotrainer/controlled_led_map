@@ -30,5 +30,15 @@
   "polymet": 27,
   "gold": 28,
   "fireclay": 29,
-  "phosphorites": 30
+  "phosphorites": 30,
+  "teeth": 31,
+  "fortress": 32,
+  "cave": 33,
+  "sculpture": 34,
+  "writing": 35,
+  "museumcity": 36,
+  "monument": 37,
+  "rybnoe": 38,
+  "berchikul": 39,
+  "tanai": 40
 }

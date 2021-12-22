@@ -348,7 +348,7 @@ body {
   box-shadow: 0 0 12px rgba(0,0,0,0.8);
 }
 
-.city__item__info {
+.city__item__info, .mineral__item__info, .miracle__item__info {
   position: absolute;
   width: 960px;
   height: 117px;
@@ -364,9 +364,9 @@ body {
   top: 18px;
 }
 
-.city__item__name {
+.city__item__name, .mineral__item__name {
   position: absolute;
-  width: 800px;
+  width: 840px;
   height: 64px;
   left: 113px;
   top: 18px;
@@ -445,28 +445,6 @@ body {
   top: 321px;
 }
 
-.mineral__item__info {
-  position: absolute;
-  width: 960px;
-  height: 117px;
-  left: 960px;
-  top: 0px;
-}
-
-.mineral__item__name {
-  position: absolute;
-  width: 800px;
-  height: 64px;
-  left: 113px;
-  top: 18px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 64px;
-  line-height: 100%;
-  color: #00749E;
-}
-
 .mineral__item__text {
   position: absolute;
   width: 852px;
@@ -480,6 +458,21 @@ body {
   font-size: 18px;
   line-height: 126.5%;
   color: #00749E;
+}
+
+.miracle__item__name {
+  position: absolute;
+  width: 840px;
+  height: 64px;
+  left: 113px;
+  top: 18px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 44px;
+  line-height: 100%;
+  color: #00749E;
+  text-align: center;
 }
 
 .map__city {
