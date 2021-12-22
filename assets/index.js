@@ -28,6 +28,7 @@ const miracleItemText = document.querySelector(".miracle__item__text");
 const miracleItemHeading = document.querySelector(".miracle__item__heading");
 const miracleItemButtons = document.querySelector(".miracle__item__buttons");
 const miracleItemBotton = document.querySelectorAll(".miracle__item__button");
+const miracleItemGallery = document.querySelector(".miracle__item__gallery");
 const miracleItemVideo = document.querySelector(".miracle__item__video");
 const mapCities = document.querySelectorAll(".map__city");
 const cities = document.querySelector(".cities");
@@ -200,11 +201,15 @@ miracleItemBotton.forEach(button => {
     const heading = this.value;
 
     if (heading == "ФОТОАЛЬБОМ") {
-      document.querySelector(".miracle__item__gallery").style.display = "grid";
+      miracleItemGallery.style.display = "grid";
+      const miraclePictures = miracleItemGallery.querySelectorAll(`[name="${dName}"]`);
+      miraclePictures.forEach(picture => {
+        picture.classList.remove("hidden");
+      });
     }
 
     if (heading == "ВИДЕО-ВИЗИТКА") {
-      document.querySelector(".miracle__item__video").classList.remove("hidden");
+      miracleItemVideo.classList.remove("hidden");
     }
 
     miracleItemHeading.textContent = heading;
@@ -262,8 +267,12 @@ home.addEventListener("click", () => {
     miracleItemText.innerHTML = "";
     miracleItemButtons.style.display = "none";
     miracleItemHeading.classList.add("hidden");
-    document.querySelector(".miracle__item__gallery").style.display = "none";
-    document.querySelector(".miracle__item__video").classList.add("hidden");
+    miracleItemGallery.style.display = "none";
+    miracleItemVideo.classList.add("hidden");
+    const miraclePictures = miracleItemGallery.querySelectorAll(`[name="${dName}"]`);
+    miraclePictures.forEach(picture => {
+      picture.classList.remove("hidden");
+    });
     back.classList.add("hidden");
   }
 });
