@@ -22,6 +22,7 @@ const mineralItemName = document.querySelector(".mineral__item__name");
 const mineralItemText = document.querySelector(".mineral__item__text");
 const miracleItemInfo = document.querySelector(".miracle__item__info");
 const miracleItemName = document.querySelector(".miracle__item__name");
+const miracleItemText = document.querySelector(".miracle__item__text");
 const mapCities = document.querySelectorAll(".map__city");
 const cities = document.querySelector(".cities");
 const ellipses = document.querySelector(".ellipses");
@@ -139,6 +140,8 @@ buttonMiracle.forEach(button => {
     const width = document.querySelector(`.${dName}`).offsetWidth;
     const height = document.querySelector(`.${dName}`).offsetHeight;
 
+    socket.emit("click miracle", dName);
+
     miracleItems.style.display = "none";
     home.classList.remove("hidden");
     info.classList.add("hidden");
@@ -147,14 +150,22 @@ buttonMiracle.forEach(button => {
     document.querySelector(`.${dName}`).style.height = String(height * 1.5) + "px";
     miracleItemInfo.classList.remove("hidden");
     miracleItemName.textContent = miracleName;
+    miracleItemText.classList.remove("hidden");
   });
 });
 
-home.addEventListener("click", () => {
-  const underline = document.querySelector(".underline");
+socket.on("click miracle", (info) => {
+  addInfo(miracleItemText, info);
+});
 
+home.addEventListener("click", () => {
+  socket.emit("off leds", "off");
+  home.classList.add("hidden");
+  info.classList.remove("hidden");
+  document.body.style.backgroundImage = "url(images/BGpoints.png)";
+
+  const underline = document.querySelector(".underline");
   if (underline.textContent == "ГОРОДА КУЗБАССА") {
-    socket.emit("off leds", "off");
     cityItemHistory.innerHTML = "";
     districtItems.style.display = "flex";
     cityItemText.innerHTML = "";
@@ -186,11 +197,9 @@ home.addEventListener("click", () => {
     document.querySelector(`.${dName}`).style.height = String(height / 1.5) + "px";
     miracleItems.style.display = "flex";
     miracleItemInfo.classList.add("hidden");
+    miracleItemText.classList.add("hidden");
+    miracleItemText.innerHTML = "";
   }
-
-  home.classList.add("hidden");
-  info.classList.remove("hidden");
-  document.body.style.backgroundImage = "url(images/BGpoints.png)";
 });
 
 cityItemButton.forEach(button => {

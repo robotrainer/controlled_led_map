@@ -7,6 +7,7 @@ const citiesInfo = require("./db/citydata_Small.json");
 const led = require("./db/led.json");
 const citiesHistory = require("./db/citydata_Big.json");
 const mineralsInfo = require("./db/IscopData.json");
+const miraclesInfo = require("./db/WondersData.json");
 
 const app = express();
 const server = http.createServer(app);
@@ -28,6 +29,11 @@ io.on("connection", (socket) => {
   socket.on("click mineral", (mineralName) => {
     sendSignalArduino(mineralName);
     socket.emit("click mineral", mineralsInfo[mineralName]);
+  });
+
+  socket.on("click miracle", (miracleName) => {
+    sendSignalArduino(miracleName);
+    socket.emit("click miracle", miraclesInfo[miracleName]);
   });
 
   socket.on("off leds", (off) => {
