@@ -188,7 +188,16 @@ buttonMiracle.forEach(button => {
     miracleItemName.textContent = miracleName;
     miracleItemText.classList.remove("hidden");
     miracleItemButtons.style.display = "flex";
-    miracleItemVideo.querySelector("video").src = `./videos/miracles/${dName}.mp4`;
+    if (dName == "writing") {
+      document.querySelector(".disable.video").classList.add("miracle__item__button");
+      document.querySelector(".disable.video").classList.remove("disable");
+      document.querySelector(".miracle__item__button.video").disabled = false;
+      miracleItemVideo.querySelector("video").src = `./videos/miracles/${dName}.mp4`;
+    } else {
+      document.querySelector(".miracle__item__button.video").disabled = true;
+      document.querySelector(".miracle__item__button.video").classList.add("disable");
+      document.querySelector(".miracle__item__button.video").classList.remove("miracle__item__button");
+    }
   });
 });
 
@@ -271,7 +280,7 @@ home.addEventListener("click", () => {
     miracleItemVideo.classList.add("hidden");
     const miraclePictures = miracleItemGallery.querySelectorAll(`[name="${dName}"]`);
     miraclePictures.forEach(picture => {
-      picture.classList.remove("hidden");
+      picture.classList.add("hidden");
     });
     back.classList.add("hidden");
   }
@@ -286,14 +295,14 @@ back.addEventListener("click", () => {
     cityItemHeading.classList.add("hidden");
     cityItemText.classList.remove("hidden");
     cityItemHistory.classList.add("hidden");
-    document.querySelector(".city__item__gallery").style.display = "none";
-    document.querySelector(".city__item__video").classList.add("hidden");
+    cityItemGallery.style.display = "none";
+    cityItemVideo.classList.add("hidden");
   } else if (underline.textContent == "ЧУДЕСА КУЗБАССА") {
     miracleItemButtons.style.display = "flex";
     miracleItemHeading.classList.add("hidden");
     miracleItemText.classList.remove("hidden");
-    document.querySelector(".miracle__item__gallery").style.display = "none";
-    document.querySelector(".miracle__item__video").classList.add("hidden");
+    miracleItemGallery.style.display = "none";
+    miracleItemVideo.classList.add("hidden");
   }
 });
 

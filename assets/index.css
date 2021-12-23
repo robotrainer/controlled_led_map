@@ -10,6 +10,25 @@ body {
   border-bottom: 2px solid #FFFFFF;
 }
 
+.disable {
+  position: static;
+  width: 688px;
+  height: 80px;
+  flex: none;
+  flex-grow: 0;
+  margin: 20px 0px;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 100%;
+  color: #FFFFFF;
+  background: #5E97AB;
+  box-shadow: none;
+  border-color: #5E97AB;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -378,7 +397,7 @@ body {
   color: #00749E;
 }
 
-.city__item__heading, .miracle__item__heading {
+.city__item__heading {
   position: absolute;
   width: 277px;
   height: 22px;
@@ -422,7 +441,7 @@ body {
   color: #00749E;
 }
 
-.city__item__gallery, .miracle__item__gallery {
+.city__item__gallery {
   position: absolute;
   width: 852px;
   height: 900px;
@@ -473,6 +492,32 @@ body {
   line-height: 100%;
   color: #00749E;
   text-align: center;
+}
+
+.miracle__item__heading {
+  position: absolute;
+  width: 277px;
+  height: 22px;
+  left: 113px;
+  top: 110px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 100%;
+  color: #00749E;
+}
+
+.miracle__item__gallery {
+  position: absolute;
+  width: 852px;
+  height: 870px;
+  left: 1014px;
+  top: 149px;
+  overflow: auto;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
 }
 
 .map__city {
