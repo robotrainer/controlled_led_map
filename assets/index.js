@@ -39,6 +39,7 @@ const headerSwitch = document.querySelectorAll(".header__switch");
 
 headerSwitch.forEach(s => {
   s.addEventListener("click", () => {
+    buttonHome();
     headerSwitch.forEach(s => {
       if (s.classList.value.includes("underline")) {
         s.classList.remove("underline");
@@ -229,7 +230,7 @@ miracleItemBotton.forEach(button => {
   });
 });
 
-home.addEventListener("click", () => {
+function buttonHome() {
   socket.emit("off leds", "off");
   home.classList.add("hidden");
   info.classList.remove("hidden");
@@ -284,7 +285,9 @@ home.addEventListener("click", () => {
     });
     back.classList.add("hidden");
   }
-});
+}
+
+home.addEventListener("click", buttonHome);
 
 back.addEventListener("click", () => {
   back.classList.add("hidden");
