@@ -77,6 +77,7 @@ headerSwitch.forEach(s => {
 let cityName = "";
 buttonDistict.forEach(button => {
   button.addEventListener("click", function () {
+    playSound();
     const districtName = this.value;
     cityName = this.getAttribute("data-name");
 
@@ -116,6 +117,7 @@ socket.on("history", (history) => {
 
 cityItemButton.forEach(button => {
   button.addEventListener("click", function () {
+    playSound();
     const heading = this.value;
 
     if (heading == "ИСТОРИЧЕСКАЯ СПРАВКА") {
@@ -140,11 +142,13 @@ cityItemButton.forEach(button => {
     cityItemText.classList.add("hidden");
     back.classList.remove("hidden");
   });
+  // button.addEventListener("click", playSound);
 });
 
 let iconMineral = "";
 buttonMineral.forEach(button => {
   button.addEventListener("click", function () {
+    playSound();
     const mineralName = this.value;
     const dataName = this.getAttribute("data-name");
     iconMineral = document.querySelectorAll(`.${dataName}`);
@@ -172,6 +176,7 @@ socket.on("click mineral", (info) => {
 let dName = "";
 buttonMiracle.forEach(button => {
   button.addEventListener("click", function () {
+    playSound();
     const miracleName = this.value;
     dName = this.getAttribute("data-name");
     const width = document.querySelector(`.${dName}`).offsetWidth;
@@ -208,6 +213,7 @@ socket.on("click miracle", (info) => {
 
 miracleItemBotton.forEach(button => {
   button.addEventListener("click", function () {
+    playSound();
     const heading = this.value;
 
     if (heading == "ФОТОАЛЬБОМ") {
@@ -231,6 +237,7 @@ miracleItemBotton.forEach(button => {
 });
 
 function buttonHome() {
+  playSound();
   socket.emit("off leds", "off");
   home.classList.add("hidden");
   info.classList.remove("hidden");
@@ -258,19 +265,28 @@ function buttonHome() {
     back.classList.add("hidden");
   } else if (underline.textContent == "ПОЛЕЗНЫЕ ИСКОПАЕМЫЕ") {
     mineralItems.style.display = "flex";
-    iconMineral.forEach(i => {
-      i.style.width = "14px";
-      i.style.height = "14px";
-    });
+    if (iconMineral != "") {
+      iconMineral.forEach(i => {
+        i.style.width = "14px";
+        i.style.height = "14px";
+      });
+    }
     mineralItemInfo.classList.add("hidden");
     mineralItemText.classList.add("hidden");
     mineralItemText.innerHTML = "";
   } else if (underline.textContent == "ЧУДЕСА КУЗБАССА") {
-    const width = document.querySelector(`.${dName}`).offsetWidth;
-    const height = document.querySelector(`.${dName}`).offsetHeight;
+    if (dName != "") {
+      const width = document.querySelector(`.${dName}`).offsetWidth;
+      const height = document.querySelector(`.${dName}`).offsetHeight;
+      document.querySelector(`.${dName}`).style.width = String(width / 1.5) + "px";
+      document.querySelector(`.${dName}`).style.height = String(height / 1.5) + "px";
 
-    document.querySelector(`.${dName}`).style.width = String(width / 1.5) + "px";
-    document.querySelector(`.${dName}`).style.height = String(height / 1.5) + "px";
+      const miraclePictures = miracleItemGallery.querySelectorAll(`[name="${dName}"]`);
+      miraclePictures.forEach(picture => {
+        picture.classList.add("hidden");
+      });
+    }
+
     miracleItems.style.display = "flex";
     miracleItemInfo.classList.add("hidden");
     miracleItemText.classList.add("hidden");
@@ -279,10 +295,6 @@ function buttonHome() {
     miracleItemHeading.classList.add("hidden");
     miracleItemGallery.style.display = "none";
     miracleItemVideo.classList.add("hidden");
-    const miraclePictures = miracleItemGallery.querySelectorAll(`[name="${dName}"]`);
-    miraclePictures.forEach(picture => {
-      picture.classList.add("hidden");
-    });
     back.classList.add("hidden");
   }
 }
@@ -290,6 +302,7 @@ function buttonHome() {
 home.addEventListener("click", buttonHome);
 
 back.addEventListener("click", () => {
+  playSound();
   back.classList.add("hidden");
 
   const underline = document.querySelector(".underline");
@@ -316,4 +329,10 @@ function addInfo(domElem, getInfo) {
     domElem.appendChild(p);
     p.textContent = text;
   });
+}
+
+function playSound() {
+  let mySound = new Audio;
+  mySound.src = "./sound/button2.mp3";
+  mySound.play();
 }
