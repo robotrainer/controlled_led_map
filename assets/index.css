@@ -128,12 +128,28 @@ body {
   top: 34px;
 }
 
+.map__info__school {
+  position: absolute;
+  width: 545px;
+  height: 19px;
+  left: 226px;
+  top: 20px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+}
+
 .map__info__logo {
   position: absolute;
   width: 545px;
   height: 90px;
   left: 226px;
-  top: 33px;
+  top: 61px;
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -150,7 +166,7 @@ body {
   width: 543px;
   height: 19px;
   left: 226px;
-  top: 149px;
+  top: 171px;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
