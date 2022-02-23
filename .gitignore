@@ -104,3 +104,6 @@ dist
 .tern-port
 
 *:Zone.Identifier
+
+assets/images/picture/
+assets/videos/
